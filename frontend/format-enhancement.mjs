@@ -1,0 +1,5 @@
+import fs from 'node:fs';
+import {transformSync} from 'esbuild';
+const files=['src/App.jsx','src/components/ui.jsx','src/components/Sidebar.jsx','src/components/Header.jsx','src/components/ResultsPanel.jsx','src/components/AutomataGraph.jsx','src/components/AutomataNode.jsx','src/components/StepControls.jsx','src/components/TransitionTable.jsx','src/components/ExecutionTraceView.jsx','src/components/NfaToDfaConversion.jsx','src/pages/DashboardPage.jsx','src/pages/AutomataLabPage.jsx','src/pages/TeachingLabPage.jsx','src/pages/TheoryAboutPage.jsx','src/pages/AboutPage.jsx','src/hooks/useJob.js',...fs.readdirSync('src/components/studios').map(f=>'src/components/studios/'+f)];
+for(const file of files){const source=fs.readFileSync(file,'utf8');fs.writeFileSync(file,transformSync(source,{loader:file.endsWith('.jsx')?'jsx':'js',jsx:'preserve',format:'esm',target:'esnext',minify:false,charset:'utf8'}).code);}
+console.log('Formatted changed modules with installed esbuild; no packages added.');

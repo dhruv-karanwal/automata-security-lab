@@ -1,0 +1,6133 @@
+{
+  "/api/health": {
+    "status": "ok",
+    "project": "Automata Security Lab"
+  },
+  "/api/automata": {
+    "automata": [
+      {
+        "automaton_id": "dfa_win_prize_now",
+        "name": "DFA: WIN PRIZE NOW",
+        "description": "Recognizes exactly the token sequence WIN PRIZE NOW.",
+        "automaton_type": "dfa",
+        "states": [
+          "q0",
+          "q1",
+          "q2",
+          "q3",
+          "q_dead"
+        ],
+        "alphabet": [
+          "WIN",
+          "PRIZE",
+          "NOW",
+          "other"
+        ],
+        "start_state": "q0",
+        "accepting_states": [
+          "q3"
+        ],
+        "transitions": [
+          {
+            "from_state": "q0",
+            "symbol": "WIN",
+            "to_states": [
+              "q1"
+            ]
+          },
+          {
+            "from_state": "q0",
+            "symbol": "PRIZE",
+            "to_states": [
+              "q_dead"
+            ]
+          },
+          {
+            "from_state": "q0",
+            "symbol": "NOW",
+            "to_states": [
+              "q_dead"
+            ]
+          },
+          {
+            "from_state": "q0",
+            "symbol": "other",
+            "to_states": [
+              "q_dead"
+            ]
+          },
+          {
+            "from_state": "q1",
+            "symbol": "WIN",
+            "to_states": [
+              "q_dead"
+            ]
+          },
+          {
+            "from_state": "q1",
+            "symbol": "PRIZE",
+            "to_states": [
+              "q2"
+            ]
+          },
+          {
+            "from_state": "q1",
+            "symbol": "NOW",
+            "to_states": [
+              "q_dead"
+            ]
+          },
+          {
+            "from_state": "q1",
+            "symbol": "other",
+            "to_states": [
+              "q_dead"
+            ]
+          },
+          {
+            "from_state": "q2",
+            "symbol": "WIN",
+            "to_states": [
+              "q_dead"
+            ]
+          },
+          {
+            "from_state": "q2",
+            "symbol": "PRIZE",
+            "to_states": [
+              "q_dead"
+            ]
+          },
+          {
+            "from_state": "q2",
+            "symbol": "NOW",
+            "to_states": [
+              "q3"
+            ]
+          },
+          {
+            "from_state": "q2",
+            "symbol": "other",
+            "to_states": [
+              "q_dead"
+            ]
+          },
+          {
+            "from_state": "q3",
+            "symbol": "WIN",
+            "to_states": [
+              "q_dead"
+            ]
+          },
+          {
+            "from_state": "q3",
+            "symbol": "PRIZE",
+            "to_states": [
+              "q_dead"
+            ]
+          },
+          {
+            "from_state": "q3",
+            "symbol": "NOW",
+            "to_states": [
+              "q_dead"
+            ]
+          },
+          {
+            "from_state": "q3",
+            "symbol": "other",
+            "to_states": [
+              "q_dead"
+            ]
+          },
+          {
+            "from_state": "q_dead",
+            "symbol": "WIN",
+            "to_states": [
+              "q_dead"
+            ]
+          },
+          {
+            "from_state": "q_dead",
+            "symbol": "PRIZE",
+            "to_states": [
+              "q_dead"
+            ]
+          },
+          {
+            "from_state": "q_dead",
+            "symbol": "NOW",
+            "to_states": [
+              "q_dead"
+            ]
+          },
+          {
+            "from_state": "q_dead",
+            "symbol": "other",
+            "to_states": [
+              "q_dead"
+            ]
+          }
+        ]
+      },
+      {
+        "automaton_id": "nfa_phishing_branches",
+        "name": "NFA: Multi-Branch Phishing Recognizer",
+        "description": "Describes three token-sequence branches reached by epsilon moves.",
+        "automaton_type": "nfa",
+        "states": [
+          "s0",
+          "w0",
+          "w1",
+          "w2",
+          "w3",
+          "c0",
+          "c1",
+          "c2",
+          "c3",
+          "a0",
+          "a1",
+          "a2",
+          "a3"
+        ],
+        "alphabet": [
+          "WIN",
+          "PRIZE",
+          "NOW",
+          "CLAIM",
+          "REWARD",
+          "ACCOUNT",
+          "VERIFY",
+          "IMMEDIATELY"
+        ],
+        "start_state": "s0",
+        "accepting_states": [
+          "w3",
+          "c3",
+          "a3"
+        ],
+        "transitions": [
+          {
+            "from_state": "s0",
+            "symbol": null,
+            "to_states": [
+              "w0",
+              "c0",
+              "a0"
+            ]
+          },
+          {
+            "from_state": "w0",
+            "symbol": "WIN",
+            "to_states": [
+              "w1"
+            ]
+          },
+          {
+            "from_state": "w1",
+            "symbol": "PRIZE",
+            "to_states": [
+              "w2"
+            ]
+          },
+          {
+            "from_state": "w2",
+            "symbol": "NOW",
+            "to_states": [
+              "w3"
+            ]
+          },
+          {
+            "from_state": "c0",
+            "symbol": "CLAIM",
+            "to_states": [
+              "c1"
+            ]
+          },
+          {
+            "from_state": "c1",
+            "symbol": "REWARD",
+            "to_states": [
+              "c2"
+            ]
+          },
+          {
+            "from_state": "c2",
+            "symbol": "NOW",
+            "to_states": [
+              "c3"
+            ]
+          },
+          {
+            "from_state": "a0",
+            "symbol": "ACCOUNT",
+            "to_states": [
+              "a1"
+            ]
+          },
+          {
+            "from_state": "a1",
+            "symbol": "VERIFY",
+            "to_states": [
+              "a2"
+            ]
+          },
+          {
+            "from_state": "a2",
+            "symbol": "IMMEDIATELY",
+            "to_states": [
+              "a3"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "thompson": {
+    "model": {
+      "automaton_id": "educational",
+      "name": "Thompson email-fragment expression",
+      "description": "Computed educational automaton; not a new email rule.",
+      "automaton_type": "nfa",
+      "states": [
+        "t0",
+        "t1",
+        "t2",
+        "t3",
+        "t4",
+        "t5",
+        "t6",
+        "t7",
+        "t8",
+        "t9",
+        "t10",
+        "t11",
+        "t12",
+        "t13",
+        "t14",
+        "t15",
+        "t16",
+        "t17"
+      ],
+      "alphabet": [
+        "A",
+        "C",
+        "I",
+        "L",
+        "M",
+        "N",
+        "W"
+      ],
+      "start_state": "t16",
+      "accepting_states": [
+        "t17"
+      ],
+      "transitions": [
+        {
+          "from_state": "t0",
+          "symbol": "W",
+          "to_states": [
+            "t1"
+          ]
+        },
+        {
+          "from_state": "t2",
+          "symbol": "I",
+          "to_states": [
+            "t3"
+          ]
+        },
+        {
+          "from_state": "t1",
+          "symbol": null,
+          "to_states": [
+            "t2"
+          ]
+        },
+        {
+          "from_state": "t4",
+          "symbol": "N",
+          "to_states": [
+            "t5"
+          ]
+        },
+        {
+          "from_state": "t3",
+          "symbol": null,
+          "to_states": [
+            "t4"
+          ]
+        },
+        {
+          "from_state": "t6",
+          "symbol": "C",
+          "to_states": [
+            "t7"
+          ]
+        },
+        {
+          "from_state": "t8",
+          "symbol": "L",
+          "to_states": [
+            "t9"
+          ]
+        },
+        {
+          "from_state": "t7",
+          "symbol": null,
+          "to_states": [
+            "t8"
+          ]
+        },
+        {
+          "from_state": "t10",
+          "symbol": "A",
+          "to_states": [
+            "t11"
+          ]
+        },
+        {
+          "from_state": "t9",
+          "symbol": null,
+          "to_states": [
+            "t10"
+          ]
+        },
+        {
+          "from_state": "t12",
+          "symbol": "I",
+          "to_states": [
+            "t13"
+          ]
+        },
+        {
+          "from_state": "t11",
+          "symbol": null,
+          "to_states": [
+            "t12"
+          ]
+        },
+        {
+          "from_state": "t14",
+          "symbol": "M",
+          "to_states": [
+            "t15"
+          ]
+        },
+        {
+          "from_state": "t13",
+          "symbol": null,
+          "to_states": [
+            "t14"
+          ]
+        },
+        {
+          "from_state": "t16",
+          "symbol": null,
+          "to_states": [
+            "t0",
+            "t6"
+          ]
+        },
+        {
+          "from_state": "t5",
+          "symbol": null,
+          "to_states": [
+            "t17"
+          ]
+        },
+        {
+          "from_state": "t15",
+          "symbol": null,
+          "to_states": [
+            "t17"
+          ]
+        }
+      ]
+    },
+    "syntax_tree": {
+      "type": "union",
+      "children": [
+        {
+          "type": "concat",
+          "children": [
+            {
+              "type": "concat",
+              "children": [
+                {
+                  "type": "literal",
+                  "value": "W"
+                },
+                {
+                  "type": "literal",
+                  "value": "I"
+                }
+              ]
+            },
+            {
+              "type": "literal",
+              "value": "N"
+            }
+          ]
+        },
+        {
+          "type": "concat",
+          "children": [
+            {
+              "type": "concat",
+              "children": [
+                {
+                  "type": "concat",
+                  "children": [
+                    {
+                      "type": "concat",
+                      "children": [
+                        {
+                          "type": "literal",
+                          "value": "C"
+                        },
+                        {
+                          "type": "literal",
+                          "value": "L"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "literal",
+                      "value": "A"
+                    }
+                  ]
+                },
+                {
+                  "type": "literal",
+                  "value": "I"
+                }
+              ]
+            },
+            {
+              "type": "literal",
+              "value": "M"
+            }
+          ]
+        }
+      ]
+    },
+    "fragments": [
+      {
+        "step": 1,
+        "operation": "literal W",
+        "start_state": "t0",
+        "accepting_state": "t1",
+        "created_states": [
+          "t0",
+          "t1"
+        ],
+        "created_transitions": [
+          {
+            "from_state": "t0",
+            "symbol": "W",
+            "to_states": [
+              "t1"
+            ]
+          }
+        ],
+        "states": [
+          "t0",
+          "t1"
+        ],
+        "transitions": [
+          {
+            "from_state": "t0",
+            "symbol": "W",
+            "to_states": [
+              "t1"
+            ]
+          }
+        ],
+        "explanation": "literal W: fragment t0 \u2192 t1."
+      },
+      {
+        "step": 2,
+        "operation": "literal I",
+        "start_state": "t2",
+        "accepting_state": "t3",
+        "created_states": [
+          "t2",
+          "t3"
+        ],
+        "created_transitions": [
+          {
+            "from_state": "t2",
+            "symbol": "I",
+            "to_states": [
+              "t3"
+            ]
+          }
+        ],
+        "states": [
+          "t0",
+          "t1",
+          "t2",
+          "t3"
+        ],
+        "transitions": [
+          {
+            "from_state": "t0",
+            "symbol": "W",
+            "to_states": [
+              "t1"
+            ]
+          },
+          {
+            "from_state": "t2",
+            "symbol": "I",
+            "to_states": [
+              "t3"
+            ]
+          }
+        ],
+        "explanation": "literal I: fragment t2 \u2192 t3."
+      },
+      {
+        "step": 3,
+        "operation": "concatenation",
+        "start_state": "t0",
+        "accepting_state": "t3",
+        "created_states": [],
+        "created_transitions": [
+          {
+            "from_state": "t1",
+            "symbol": null,
+            "to_states": [
+              "t2"
+            ]
+          }
+        ],
+        "states": [
+          "t0",
+          "t1",
+          "t2",
+          "t3"
+        ],
+        "transitions": [
+          {
+            "from_state": "t0",
+            "symbol": "W",
+            "to_states": [
+              "t1"
+            ]
+          },
+          {
+            "from_state": "t2",
+            "symbol": "I",
+            "to_states": [
+              "t3"
+            ]
+          },
+          {
+            "from_state": "t1",
+            "symbol": null,
+            "to_states": [
+              "t2"
+            ]
+          }
+        ],
+        "explanation": "concatenation: fragment t0 \u2192 t3."
+      },
+      {
+        "step": 4,
+        "operation": "literal N",
+        "start_state": "t4",
+        "accepting_state": "t5",
+        "created_states": [
+          "t4",
+          "t5"
+        ],
+        "created_transitions": [
+          {
+            "from_state": "t4",
+            "symbol": "N",
+            "to_states": [
+              "t5"
+            ]
+          }
+        ],
+        "states": [
+          "t0",
+          "t1",
+          "t2",
+          "t3",
+          "t4",
+          "t5"
+        ],
+        "transitions": [
+          {
+            "from_state": "t0",
+            "symbol": "W",
+            "to_states": [
+              "t1"
+            ]
+          },
+          {
+            "from_state": "t2",
+            "symbol": "I",
+            "to_states": [
+              "t3"
+            ]
+          },
+          {
+            "from_state": "t1",
+            "symbol": null,
+            "to_states": [
+              "t2"
+            ]
+          },
+          {
+            "from_state": "t4",
+            "symbol": "N",
+            "to_states": [
+              "t5"
+            ]
+          }
+        ],
+        "explanation": "literal N: fragment t4 \u2192 t5."
+      },
+      {
+        "step": 5,
+        "operation": "concatenation",
+        "start_state": "t0",
+        "accepting_state": "t5",
+        "created_states": [],
+        "created_transitions": [
+          {
+            "from_state": "t3",
+            "symbol": null,
+            "to_states": [
+              "t4"
+            ]
+          }
+        ],
+        "states": [
+          "t0",
+          "t1",
+          "t2",
+          "t3",
+          "t4",
+          "t5"
+        ],
+        "transitions": [
+          {
+            "from_state": "t0",
+            "symbol": "W",
+            "to_states": [
+              "t1"
+            ]
+          },
+          {
+            "from_state": "t2",
+            "symbol": "I",
+            "to_states": [
+              "t3"
+            ]
+          },
+          {
+            "from_state": "t1",
+            "symbol": null,
+            "to_states": [
+              "t2"
+            ]
+          },
+          {
+            "from_state": "t4",
+            "symbol": "N",
+            "to_states": [
+              "t5"
+            ]
+          },
+          {
+            "from_state": "t3",
+            "symbol": null,
+            "to_states": [
+              "t4"
+            ]
+          }
+        ],
+        "explanation": "concatenation: fragment t0 \u2192 t5."
+      },
+      {
+        "step": 6,
+        "operation": "literal C",
+        "start_state": "t6",
+        "accepting_state": "t7",
+        "created_states": [
+          "t6",
+          "t7"
+        ],
+        "created_transitions": [
+          {
+            "from_state": "t6",
+            "symbol": "C",
+            "to_states": [
+              "t7"
+            ]
+          }
+        ],
+        "states": [
+          "t0",
+          "t1",
+          "t2",
+          "t3",
+          "t4",
+          "t5",
+          "t6",
+          "t7"
+        ],
+        "transitions": [
+          {
+            "from_state": "t0",
+            "symbol": "W",
+            "to_states": [
+              "t1"
+            ]
+          },
+          {
+            "from_state": "t2",
+            "symbol": "I",
+            "to_states": [
+              "t3"
+            ]
+          },
+          {
+            "from_state": "t1",
+            "symbol": null,
+            "to_states": [
+              "t2"
+            ]
+          },
+          {
+            "from_state": "t4",
+            "symbol": "N",
+            "to_states": [
+              "t5"
+            ]
+          },
+          {
+            "from_state": "t3",
+            "symbol": null,
+            "to_states": [
+              "t4"
+            ]
+          },
+          {
+            "from_state": "t6",
+            "symbol": "C",
+            "to_states": [
+              "t7"
+            ]
+          }
+        ],
+        "explanation": "literal C: fragment t6 \u2192 t7."
+      },
+      {
+        "step": 7,
+        "operation": "literal L",
+        "start_state": "t8",
+        "accepting_state": "t9",
+        "created_states": [
+          "t8",
+          "t9"
+        ],
+        "created_transitions": [
+          {
+            "from_state": "t8",
+            "symbol": "L",
+            "to_states": [
+              "t9"
+            ]
+          }
+        ],
+        "states": [
+          "t0",
+          "t1",
+          "t2",
+          "t3",
+          "t4",
+          "t5",
+          "t6",
+          "t7",
+          "t8",
+          "t9"
+        ],
+        "transitions": [
+          {
+            "from_state": "t0",
+            "symbol": "W",
+            "to_states": [
+              "t1"
+            ]
+          },
+          {
+            "from_state": "t2",
+            "symbol": "I",
+            "to_states": [
+              "t3"
+            ]
+          },
+          {
+            "from_state": "t1",
+            "symbol": null,
+            "to_states": [
+              "t2"
+            ]
+          },
+          {
+            "from_state": "t4",
+            "symbol": "N",
+            "to_states": [
+              "t5"
+            ]
+          },
+          {
+            "from_state": "t3",
+            "symbol": null,
+            "to_states": [
+              "t4"
+            ]
+          },
+          {
+            "from_state": "t6",
+            "symbol": "C",
+            "to_states": [
+              "t7"
+            ]
+          },
+          {
+            "from_state": "t8",
+            "symbol": "L",
+            "to_states": [
+              "t9"
+            ]
+          }
+        ],
+        "explanation": "literal L: fragment t8 \u2192 t9."
+      },
+      {
+        "step": 8,
+        "operation": "concatenation",
+        "start_state": "t6",
+        "accepting_state": "t9",
+        "created_states": [],
+        "created_transitions": [
+          {
+            "from_state": "t7",
+            "symbol": null,
+            "to_states": [
+              "t8"
+            ]
+          }
+        ],
+        "states": [
+          "t0",
+          "t1",
+          "t2",
+          "t3",
+          "t4",
+          "t5",
+          "t6",
+          "t7",
+          "t8",
+          "t9"
+        ],
+        "transitions": [
+          {
+            "from_state": "t0",
+            "symbol": "W",
+            "to_states": [
+              "t1"
+            ]
+          },
+          {
+            "from_state": "t2",
+            "symbol": "I",
+            "to_states": [
+              "t3"
+            ]
+          },
+          {
+            "from_state": "t1",
+            "symbol": null,
+            "to_states": [
+              "t2"
+            ]
+          },
+          {
+            "from_state": "t4",
+            "symbol": "N",
+            "to_states": [
+              "t5"
+            ]
+          },
+          {
+            "from_state": "t3",
+            "symbol": null,
+            "to_states": [
+              "t4"
+            ]
+          },
+          {
+            "from_state": "t6",
+            "symbol": "C",
+            "to_states": [
+              "t7"
+            ]
+          },
+          {
+            "from_state": "t8",
+            "symbol": "L",
+            "to_states": [
+              "t9"
+            ]
+          },
+          {
+            "from_state": "t7",
+            "symbol": null,
+            "to_states": [
+              "t8"
+            ]
+          }
+        ],
+        "explanation": "concatenation: fragment t6 \u2192 t9."
+      },
+      {
+        "step": 9,
+        "operation": "literal A",
+        "start_state": "t10",
+        "accepting_state": "t11",
+        "created_states": [
+          "t10",
+          "t11"
+        ],
+        "created_transitions": [
+          {
+            "from_state": "t10",
+            "symbol": "A",
+            "to_states": [
+              "t11"
+            ]
+          }
+        ],
+        "states": [
+          "t0",
+          "t1",
+          "t2",
+          "t3",
+          "t4",
+          "t5",
+          "t6",
+          "t7",
+          "t8",
+          "t9",
+          "t10",
+          "t11"
+        ],
+        "transitions": [
+          {
+            "from_state": "t0",
+            "symbol": "W",
+            "to_states": [
+              "t1"
+            ]
+          },
+          {
+            "from_state": "t2",
+            "symbol": "I",
+            "to_states": [
+              "t3"
+            ]
+          },
+          {
+            "from_state": "t1",
+            "symbol": null,
+            "to_states": [
+              "t2"
+            ]
+          },
+          {
+            "from_state": "t4",
+            "symbol": "N",
+            "to_states": [
+              "t5"
+            ]
+          },
+          {
+            "from_state": "t3",
+            "symbol": null,
+            "to_states": [
+              "t4"
+            ]
+          },
+          {
+            "from_state": "t6",
+            "symbol": "C",
+            "to_states": [
+              "t7"
+            ]
+          },
+          {
+            "from_state": "t8",
+            "symbol": "L",
+            "to_states": [
+              "t9"
+            ]
+          },
+          {
+            "from_state": "t7",
+            "symbol": null,
+            "to_states": [
+              "t8"
+            ]
+          },
+          {
+            "from_state": "t10",
+            "symbol": "A",
+            "to_states": [
+              "t11"
+            ]
+          }
+        ],
+        "explanation": "literal A: fragment t10 \u2192 t11."
+      },
+      {
+        "step": 10,
+        "operation": "concatenation",
+        "start_state": "t6",
+        "accepting_state": "t11",
+        "created_states": [],
+        "created_transitions": [
+          {
+            "from_state": "t9",
+            "symbol": null,
+            "to_states": [
+              "t10"
+            ]
+          }
+        ],
+        "states": [
+          "t0",
+          "t1",
+          "t2",
+          "t3",
+          "t4",
+          "t5",
+          "t6",
+          "t7",
+          "t8",
+          "t9",
+          "t10",
+          "t11"
+        ],
+        "transitions": [
+          {
+            "from_state": "t0",
+            "symbol": "W",
+            "to_states": [
+              "t1"
+            ]
+          },
+          {
+            "from_state": "t2",
+            "symbol": "I",
+            "to_states": [
+              "t3"
+            ]
+          },
+          {
+            "from_state": "t1",
+            "symbol": null,
+            "to_states": [
+              "t2"
+            ]
+          },
+          {
+            "from_state": "t4",
+            "symbol": "N",
+            "to_states": [
+              "t5"
+            ]
+          },
+          {
+            "from_state": "t3",
+            "symbol": null,
+            "to_states": [
+              "t4"
+            ]
+          },
+          {
+            "from_state": "t6",
+            "symbol": "C",
+            "to_states": [
+              "t7"
+            ]
+          },
+          {
+            "from_state": "t8",
+            "symbol": "L",
+            "to_states": [
+              "t9"
+            ]
+          },
+          {
+            "from_state": "t7",
+            "symbol": null,
+            "to_states": [
+              "t8"
+            ]
+          },
+          {
+            "from_state": "t10",
+            "symbol": "A",
+            "to_states": [
+              "t11"
+            ]
+          },
+          {
+            "from_state": "t9",
+            "symbol": null,
+            "to_states": [
+              "t10"
+            ]
+          }
+        ],
+        "explanation": "concatenation: fragment t6 \u2192 t11."
+      },
+      {
+        "step": 11,
+        "operation": "literal I",
+        "start_state": "t12",
+        "accepting_state": "t13",
+        "created_states": [
+          "t12",
+          "t13"
+        ],
+        "created_transitions": [
+          {
+            "from_state": "t12",
+            "symbol": "I",
+            "to_states": [
+              "t13"
+            ]
+          }
+        ],
+        "states": [
+          "t0",
+          "t1",
+          "t2",
+          "t3",
+          "t4",
+          "t5",
+          "t6",
+          "t7",
+          "t8",
+          "t9",
+          "t10",
+          "t11",
+          "t12",
+          "t13"
+        ],
+        "transitions": [
+          {
+            "from_state": "t0",
+            "symbol": "W",
+            "to_states": [
+              "t1"
+            ]
+          },
+          {
+            "from_state": "t2",
+            "symbol": "I",
+            "to_states": [
+              "t3"
+            ]
+          },
+          {
+            "from_state": "t1",
+            "symbol": null,
+            "to_states": [
+              "t2"
+            ]
+          },
+          {
+            "from_state": "t4",
+            "symbol": "N",
+            "to_states": [
+              "t5"
+            ]
+          },
+          {
+            "from_state": "t3",
+            "symbol": null,
+            "to_states": [
+              "t4"
+            ]
+          },
+          {
+            "from_state": "t6",
+            "symbol": "C",
+            "to_states": [
+              "t7"
+            ]
+          },
+          {
+            "from_state": "t8",
+            "symbol": "L",
+            "to_states": [
+              "t9"
+            ]
+          },
+          {
+            "from_state": "t7",
+            "symbol": null,
+            "to_states": [
+              "t8"
+            ]
+          },
+          {
+            "from_state": "t10",
+            "symbol": "A",
+            "to_states": [
+              "t11"
+            ]
+          },
+          {
+            "from_state": "t9",
+            "symbol": null,
+            "to_states": [
+              "t10"
+            ]
+          },
+          {
+            "from_state": "t12",
+            "symbol": "I",
+            "to_states": [
+              "t13"
+            ]
+          }
+        ],
+        "explanation": "literal I: fragment t12 \u2192 t13."
+      },
+      {
+        "step": 12,
+        "operation": "concatenation",
+        "start_state": "t6",
+        "accepting_state": "t13",
+        "created_states": [],
+        "created_transitions": [
+          {
+            "from_state": "t11",
+            "symbol": null,
+            "to_states": [
+              "t12"
+            ]
+          }
+        ],
+        "states": [
+          "t0",
+          "t1",
+          "t2",
+          "t3",
+          "t4",
+          "t5",
+          "t6",
+          "t7",
+          "t8",
+          "t9",
+          "t10",
+          "t11",
+          "t12",
+          "t13"
+        ],
+        "transitions": [
+          {
+            "from_state": "t0",
+            "symbol": "W",
+            "to_states": [
+              "t1"
+            ]
+          },
+          {
+            "from_state": "t2",
+            "symbol": "I",
+            "to_states": [
+              "t3"
+            ]
+          },
+          {
+            "from_state": "t1",
+            "symbol": null,
+            "to_states": [
+              "t2"
+            ]
+          },
+          {
+            "from_state": "t4",
+            "symbol": "N",
+            "to_states": [
+              "t5"
+            ]
+          },
+          {
+            "from_state": "t3",
+            "symbol": null,
+            "to_states": [
+              "t4"
+            ]
+          },
+          {
+            "from_state": "t6",
+            "symbol": "C",
+            "to_states": [
+              "t7"
+            ]
+          },
+          {
+            "from_state": "t8",
+            "symbol": "L",
+            "to_states": [
+              "t9"
+            ]
+          },
+          {
+            "from_state": "t7",
+            "symbol": null,
+            "to_states": [
+              "t8"
+            ]
+          },
+          {
+            "from_state": "t10",
+            "symbol": "A",
+            "to_states": [
+              "t11"
+            ]
+          },
+          {
+            "from_state": "t9",
+            "symbol": null,
+            "to_states": [
+              "t10"
+            ]
+          },
+          {
+            "from_state": "t12",
+            "symbol": "I",
+            "to_states": [
+              "t13"
+            ]
+          },
+          {
+            "from_state": "t11",
+            "symbol": null,
+            "to_states": [
+              "t12"
+            ]
+          }
+        ],
+        "explanation": "concatenation: fragment t6 \u2192 t13."
+      },
+      {
+        "step": 13,
+        "operation": "literal M",
+        "start_state": "t14",
+        "accepting_state": "t15",
+        "created_states": [
+          "t14",
+          "t15"
+        ],
+        "created_transitions": [
+          {
+            "from_state": "t14",
+            "symbol": "M",
+            "to_states": [
+              "t15"
+            ]
+          }
+        ],
+        "states": [
+          "t0",
+          "t1",
+          "t2",
+          "t3",
+          "t4",
+          "t5",
+          "t6",
+          "t7",
+          "t8",
+          "t9",
+          "t10",
+          "t11",
+          "t12",
+          "t13",
+          "t14",
+          "t15"
+        ],
+        "transitions": [
+          {
+            "from_state": "t0",
+            "symbol": "W",
+            "to_states": [
+              "t1"
+            ]
+          },
+          {
+            "from_state": "t2",
+            "symbol": "I",
+            "to_states": [
+              "t3"
+            ]
+          },
+          {
+            "from_state": "t1",
+            "symbol": null,
+            "to_states": [
+              "t2"
+            ]
+          },
+          {
+            "from_state": "t4",
+            "symbol": "N",
+            "to_states": [
+              "t5"
+            ]
+          },
+          {
+            "from_state": "t3",
+            "symbol": null,
+            "to_states": [
+              "t4"
+            ]
+          },
+          {
+            "from_state": "t6",
+            "symbol": "C",
+            "to_states": [
+              "t7"
+            ]
+          },
+          {
+            "from_state": "t8",
+            "symbol": "L",
+            "to_states": [
+              "t9"
+            ]
+          },
+          {
+            "from_state": "t7",
+            "symbol": null,
+            "to_states": [
+              "t8"
+            ]
+          },
+          {
+            "from_state": "t10",
+            "symbol": "A",
+            "to_states": [
+              "t11"
+            ]
+          },
+          {
+            "from_state": "t9",
+            "symbol": null,
+            "to_states": [
+              "t10"
+            ]
+          },
+          {
+            "from_state": "t12",
+            "symbol": "I",
+            "to_states": [
+              "t13"
+            ]
+          },
+          {
+            "from_state": "t11",
+            "symbol": null,
+            "to_states": [
+              "t12"
+            ]
+          },
+          {
+            "from_state": "t14",
+            "symbol": "M",
+            "to_states": [
+              "t15"
+            ]
+          }
+        ],
+        "explanation": "literal M: fragment t14 \u2192 t15."
+      },
+      {
+        "step": 14,
+        "operation": "concatenation",
+        "start_state": "t6",
+        "accepting_state": "t15",
+        "created_states": [],
+        "created_transitions": [
+          {
+            "from_state": "t13",
+            "symbol": null,
+            "to_states": [
+              "t14"
+            ]
+          }
+        ],
+        "states": [
+          "t0",
+          "t1",
+          "t2",
+          "t3",
+          "t4",
+          "t5",
+          "t6",
+          "t7",
+          "t8",
+          "t9",
+          "t10",
+          "t11",
+          "t12",
+          "t13",
+          "t14",
+          "t15"
+        ],
+        "transitions": [
+          {
+            "from_state": "t0",
+            "symbol": "W",
+            "to_states": [
+              "t1"
+            ]
+          },
+          {
+            "from_state": "t2",
+            "symbol": "I",
+            "to_states": [
+              "t3"
+            ]
+          },
+          {
+            "from_state": "t1",
+            "symbol": null,
+            "to_states": [
+              "t2"
+            ]
+          },
+          {
+            "from_state": "t4",
+            "symbol": "N",
+            "to_states": [
+              "t5"
+            ]
+          },
+          {
+            "from_state": "t3",
+            "symbol": null,
+            "to_states": [
+              "t4"
+            ]
+          },
+          {
+            "from_state": "t6",
+            "symbol": "C",
+            "to_states": [
+              "t7"
+            ]
+          },
+          {
+            "from_state": "t8",
+            "symbol": "L",
+            "to_states": [
+              "t9"
+            ]
+          },
+          {
+            "from_state": "t7",
+            "symbol": null,
+            "to_states": [
+              "t8"
+            ]
+          },
+          {
+            "from_state": "t10",
+            "symbol": "A",
+            "to_states": [
+              "t11"
+            ]
+          },
+          {
+            "from_state": "t9",
+            "symbol": null,
+            "to_states": [
+              "t10"
+            ]
+          },
+          {
+            "from_state": "t12",
+            "symbol": "I",
+            "to_states": [
+              "t13"
+            ]
+          },
+          {
+            "from_state": "t11",
+            "symbol": null,
+            "to_states": [
+              "t12"
+            ]
+          },
+          {
+            "from_state": "t14",
+            "symbol": "M",
+            "to_states": [
+              "t15"
+            ]
+          },
+          {
+            "from_state": "t13",
+            "symbol": null,
+            "to_states": [
+              "t14"
+            ]
+          }
+        ],
+        "explanation": "concatenation: fragment t6 \u2192 t15."
+      },
+      {
+        "step": 15,
+        "operation": "union",
+        "start_state": "t16",
+        "accepting_state": "t17",
+        "created_states": [
+          "t16",
+          "t17"
+        ],
+        "created_transitions": [
+          {
+            "from_state": "t16",
+            "symbol": null,
+            "to_states": [
+              "t0"
+            ]
+          },
+          {
+            "from_state": "t16",
+            "symbol": null,
+            "to_states": [
+              "t6"
+            ]
+          },
+          {
+            "from_state": "t5",
+            "symbol": null,
+            "to_states": [
+              "t17"
+            ]
+          },
+          {
+            "from_state": "t15",
+            "symbol": null,
+            "to_states": [
+              "t17"
+            ]
+          }
+        ],
+        "states": [
+          "t0",
+          "t1",
+          "t2",
+          "t3",
+          "t4",
+          "t5",
+          "t6",
+          "t7",
+          "t8",
+          "t9",
+          "t10",
+          "t11",
+          "t12",
+          "t13",
+          "t14",
+          "t15",
+          "t16",
+          "t17"
+        ],
+        "transitions": [
+          {
+            "from_state": "t0",
+            "symbol": "W",
+            "to_states": [
+              "t1"
+            ]
+          },
+          {
+            "from_state": "t2",
+            "symbol": "I",
+            "to_states": [
+              "t3"
+            ]
+          },
+          {
+            "from_state": "t1",
+            "symbol": null,
+            "to_states": [
+              "t2"
+            ]
+          },
+          {
+            "from_state": "t4",
+            "symbol": "N",
+            "to_states": [
+              "t5"
+            ]
+          },
+          {
+            "from_state": "t3",
+            "symbol": null,
+            "to_states": [
+              "t4"
+            ]
+          },
+          {
+            "from_state": "t6",
+            "symbol": "C",
+            "to_states": [
+              "t7"
+            ]
+          },
+          {
+            "from_state": "t8",
+            "symbol": "L",
+            "to_states": [
+              "t9"
+            ]
+          },
+          {
+            "from_state": "t7",
+            "symbol": null,
+            "to_states": [
+              "t8"
+            ]
+          },
+          {
+            "from_state": "t10",
+            "symbol": "A",
+            "to_states": [
+              "t11"
+            ]
+          },
+          {
+            "from_state": "t9",
+            "symbol": null,
+            "to_states": [
+              "t10"
+            ]
+          },
+          {
+            "from_state": "t12",
+            "symbol": "I",
+            "to_states": [
+              "t13"
+            ]
+          },
+          {
+            "from_state": "t11",
+            "symbol": null,
+            "to_states": [
+              "t12"
+            ]
+          },
+          {
+            "from_state": "t14",
+            "symbol": "M",
+            "to_states": [
+              "t15"
+            ]
+          },
+          {
+            "from_state": "t13",
+            "symbol": null,
+            "to_states": [
+              "t14"
+            ]
+          },
+          {
+            "from_state": "t16",
+            "symbol": null,
+            "to_states": [
+              "t0"
+            ]
+          },
+          {
+            "from_state": "t16",
+            "symbol": null,
+            "to_states": [
+              "t6"
+            ]
+          },
+          {
+            "from_state": "t5",
+            "symbol": null,
+            "to_states": [
+              "t17"
+            ]
+          },
+          {
+            "from_state": "t15",
+            "symbol": null,
+            "to_states": [
+              "t17"
+            ]
+          }
+        ],
+        "explanation": "union: fragment t16 \u2192 t17."
+      }
+    ],
+    "grammar": "literal, concatenation, |, *, parentheses; precedence: * > concatenation > |; case-sensitive character symbols.",
+    "simulation": {
+      "accepted": true,
+      "active_states": [
+        "t15",
+        "t17"
+      ],
+      "trace": [
+        {
+          "step": 0,
+          "symbol": null,
+          "states_before": [
+            "t16"
+          ],
+          "states_after": [
+            "t0",
+            "t16",
+            "t6"
+          ],
+          "closure_before": [
+            "t16"
+          ],
+          "move_result": [
+            "t16"
+          ],
+          "closure_steps": [
+            {
+              "source": null,
+              "target": null,
+              "newly_discovered": [
+                "t16"
+              ],
+              "closure": [
+                "t16"
+              ],
+              "explanation": "Initial seed set; zero epsilon moves."
+            },
+            {
+              "source": "t16",
+              "target": "t0",
+              "newly_discovered": [
+                "t0"
+              ],
+              "closure": [
+                "t0",
+                "t16"
+              ],
+              "explanation": "Discover through epsilon."
+            },
+            {
+              "source": "t16",
+              "target": "t6",
+              "newly_discovered": [
+                "t6"
+              ],
+              "closure": [
+                "t0",
+                "t16",
+                "t6"
+              ],
+              "explanation": "Discover through epsilon."
+            }
+          ],
+          "remaining_input": [
+            "C",
+            "L",
+            "A",
+            "I",
+            "M"
+          ],
+          "explanation": "Take the initial epsilon closure."
+        },
+        {
+          "step": 1,
+          "symbol": "C",
+          "states_before": [
+            "t0",
+            "t16",
+            "t6"
+          ],
+          "states_after": [
+            "t7",
+            "t8"
+          ],
+          "closure_before": [
+            "t0",
+            "t16",
+            "t6"
+          ],
+          "move_result": [
+            "t7"
+          ],
+          "closure_steps": [
+            {
+              "source": null,
+              "target": null,
+              "newly_discovered": [
+                "t7"
+              ],
+              "closure": [
+                "t7"
+              ],
+              "explanation": "Initial seed set; zero epsilon moves."
+            },
+            {
+              "source": "t7",
+              "target": "t8",
+              "newly_discovered": [
+                "t8"
+              ],
+              "closure": [
+                "t7",
+                "t8"
+              ],
+              "explanation": "Discover through epsilon."
+            }
+          ],
+          "remaining_input": [
+            "L",
+            "A",
+            "I",
+            "M"
+          ],
+          "explanation": "Consume 'C', union every destination, then expand epsilon closure."
+        },
+        {
+          "step": 2,
+          "symbol": "L",
+          "states_before": [
+            "t7",
+            "t8"
+          ],
+          "states_after": [
+            "t10",
+            "t9"
+          ],
+          "closure_before": [
+            "t7",
+            "t8"
+          ],
+          "move_result": [
+            "t9"
+          ],
+          "closure_steps": [
+            {
+              "source": null,
+              "target": null,
+              "newly_discovered": [
+                "t9"
+              ],
+              "closure": [
+                "t9"
+              ],
+              "explanation": "Initial seed set; zero epsilon moves."
+            },
+            {
+              "source": "t9",
+              "target": "t10",
+              "newly_discovered": [
+                "t10"
+              ],
+              "closure": [
+                "t10",
+                "t9"
+              ],
+              "explanation": "Discover through epsilon."
+            }
+          ],
+          "remaining_input": [
+            "A",
+            "I",
+            "M"
+          ],
+          "explanation": "Consume 'L', union every destination, then expand epsilon closure."
+        },
+        {
+          "step": 3,
+          "symbol": "A",
+          "states_before": [
+            "t10",
+            "t9"
+          ],
+          "states_after": [
+            "t11",
+            "t12"
+          ],
+          "closure_before": [
+            "t10",
+            "t9"
+          ],
+          "move_result": [
+            "t11"
+          ],
+          "closure_steps": [
+            {
+              "source": null,
+              "target": null,
+              "newly_discovered": [
+                "t11"
+              ],
+              "closure": [
+                "t11"
+              ],
+              "explanation": "Initial seed set; zero epsilon moves."
+            },
+            {
+              "source": "t11",
+              "target": "t12",
+              "newly_discovered": [
+                "t12"
+              ],
+              "closure": [
+                "t11",
+                "t12"
+              ],
+              "explanation": "Discover through epsilon."
+            }
+          ],
+          "remaining_input": [
+            "I",
+            "M"
+          ],
+          "explanation": "Consume 'A', union every destination, then expand epsilon closure."
+        },
+        {
+          "step": 4,
+          "symbol": "I",
+          "states_before": [
+            "t11",
+            "t12"
+          ],
+          "states_after": [
+            "t13",
+            "t14"
+          ],
+          "closure_before": [
+            "t11",
+            "t12"
+          ],
+          "move_result": [
+            "t13"
+          ],
+          "closure_steps": [
+            {
+              "source": null,
+              "target": null,
+              "newly_discovered": [
+                "t13"
+              ],
+              "closure": [
+                "t13"
+              ],
+              "explanation": "Initial seed set; zero epsilon moves."
+            },
+            {
+              "source": "t13",
+              "target": "t14",
+              "newly_discovered": [
+                "t14"
+              ],
+              "closure": [
+                "t13",
+                "t14"
+              ],
+              "explanation": "Discover through epsilon."
+            }
+          ],
+          "remaining_input": [
+            "M"
+          ],
+          "explanation": "Consume 'I', union every destination, then expand epsilon closure."
+        },
+        {
+          "step": 5,
+          "symbol": "M",
+          "states_before": [
+            "t13",
+            "t14"
+          ],
+          "states_after": [
+            "t15",
+            "t17"
+          ],
+          "closure_before": [
+            "t13",
+            "t14"
+          ],
+          "move_result": [
+            "t15"
+          ],
+          "closure_steps": [
+            {
+              "source": null,
+              "target": null,
+              "newly_discovered": [
+                "t15"
+              ],
+              "closure": [
+                "t15"
+              ],
+              "explanation": "Initial seed set; zero epsilon moves."
+            },
+            {
+              "source": "t15",
+              "target": "t17",
+              "newly_discovered": [
+                "t17"
+              ],
+              "closure": [
+                "t15",
+                "t17"
+              ],
+              "explanation": "Discover through epsilon."
+            }
+          ],
+          "remaining_input": [],
+          "explanation": "Consume 'M', union every destination, then expand epsilon closure."
+        }
+      ]
+    }
+  },
+  "minimize": {
+    "original": {
+      "automaton_id": "nfa_phishing_branches",
+      "name": "NFA: Multi-Branch Phishing Recognizer",
+      "description": "Describes three token-sequence branches reached by epsilon moves.",
+      "automaton_type": "nfa",
+      "states": [
+        "s0",
+        "w0",
+        "w1",
+        "w2",
+        "w3",
+        "c0",
+        "c1",
+        "c2",
+        "c3",
+        "a0",
+        "a1",
+        "a2",
+        "a3"
+      ],
+      "alphabet": [
+        "WIN",
+        "PRIZE",
+        "NOW",
+        "CLAIM",
+        "REWARD",
+        "ACCOUNT",
+        "VERIFY",
+        "IMMEDIATELY"
+      ],
+      "start_state": "s0",
+      "accepting_states": [
+        "w3",
+        "c3",
+        "a3"
+      ],
+      "transitions": [
+        {
+          "from_state": "s0",
+          "symbol": null,
+          "to_states": [
+            "w0",
+            "c0",
+            "a0"
+          ]
+        },
+        {
+          "from_state": "w0",
+          "symbol": "WIN",
+          "to_states": [
+            "w1"
+          ]
+        },
+        {
+          "from_state": "w1",
+          "symbol": "PRIZE",
+          "to_states": [
+            "w2"
+          ]
+        },
+        {
+          "from_state": "w2",
+          "symbol": "NOW",
+          "to_states": [
+            "w3"
+          ]
+        },
+        {
+          "from_state": "c0",
+          "symbol": "CLAIM",
+          "to_states": [
+            "c1"
+          ]
+        },
+        {
+          "from_state": "c1",
+          "symbol": "REWARD",
+          "to_states": [
+            "c2"
+          ]
+        },
+        {
+          "from_state": "c2",
+          "symbol": "NOW",
+          "to_states": [
+            "c3"
+          ]
+        },
+        {
+          "from_state": "a0",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "a1"
+          ]
+        },
+        {
+          "from_state": "a1",
+          "symbol": "VERIFY",
+          "to_states": [
+            "a2"
+          ]
+        },
+        {
+          "from_state": "a2",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "a3"
+          ]
+        }
+      ]
+    },
+    "total_model": {
+      "automaton_id": "educational",
+      "name": "Reachable total DFA",
+      "description": "Computed educational automaton; not a new email rule.",
+      "automaton_type": "dfa",
+      "states": [
+        "D0",
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "D7",
+        "D8",
+        "D9",
+        "D_dead"
+      ],
+      "alphabet": [
+        "ACCOUNT",
+        "CLAIM",
+        "IMMEDIATELY",
+        "NOW",
+        "PRIZE",
+        "REWARD",
+        "VERIFY",
+        "WIN"
+      ],
+      "start_state": "D0",
+      "accepting_states": [
+        "D7",
+        "D8",
+        "D9"
+      ],
+      "transitions": [
+        {
+          "from_state": "D0",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "D1"
+          ]
+        },
+        {
+          "from_state": "D0",
+          "symbol": "CLAIM",
+          "to_states": [
+            "D2"
+          ]
+        },
+        {
+          "from_state": "D0",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D0",
+          "symbol": "NOW",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D0",
+          "symbol": "PRIZE",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D0",
+          "symbol": "REWARD",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D0",
+          "symbol": "VERIFY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D0",
+          "symbol": "WIN",
+          "to_states": [
+            "D3"
+          ]
+        },
+        {
+          "from_state": "D1",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D1",
+          "symbol": "CLAIM",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D1",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D1",
+          "symbol": "NOW",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D1",
+          "symbol": "PRIZE",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D1",
+          "symbol": "REWARD",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D1",
+          "symbol": "VERIFY",
+          "to_states": [
+            "D4"
+          ]
+        },
+        {
+          "from_state": "D1",
+          "symbol": "WIN",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D2",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D2",
+          "symbol": "CLAIM",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D2",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D2",
+          "symbol": "NOW",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D2",
+          "symbol": "PRIZE",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D2",
+          "symbol": "REWARD",
+          "to_states": [
+            "D5"
+          ]
+        },
+        {
+          "from_state": "D2",
+          "symbol": "VERIFY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D2",
+          "symbol": "WIN",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D3",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D3",
+          "symbol": "CLAIM",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D3",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D3",
+          "symbol": "NOW",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D3",
+          "symbol": "PRIZE",
+          "to_states": [
+            "D6"
+          ]
+        },
+        {
+          "from_state": "D3",
+          "symbol": "REWARD",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D3",
+          "symbol": "VERIFY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D3",
+          "symbol": "WIN",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D4",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D4",
+          "symbol": "CLAIM",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D4",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "D7"
+          ]
+        },
+        {
+          "from_state": "D4",
+          "symbol": "NOW",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D4",
+          "symbol": "PRIZE",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D4",
+          "symbol": "REWARD",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D4",
+          "symbol": "VERIFY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D4",
+          "symbol": "WIN",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D5",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D5",
+          "symbol": "CLAIM",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D5",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D5",
+          "symbol": "NOW",
+          "to_states": [
+            "D8"
+          ]
+        },
+        {
+          "from_state": "D5",
+          "symbol": "PRIZE",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D5",
+          "symbol": "REWARD",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D5",
+          "symbol": "VERIFY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D5",
+          "symbol": "WIN",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D6",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D6",
+          "symbol": "CLAIM",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D6",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D6",
+          "symbol": "NOW",
+          "to_states": [
+            "D9"
+          ]
+        },
+        {
+          "from_state": "D6",
+          "symbol": "PRIZE",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D6",
+          "symbol": "REWARD",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D6",
+          "symbol": "VERIFY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D6",
+          "symbol": "WIN",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D7",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D7",
+          "symbol": "CLAIM",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D7",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D7",
+          "symbol": "NOW",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D7",
+          "symbol": "PRIZE",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D7",
+          "symbol": "REWARD",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D7",
+          "symbol": "VERIFY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D7",
+          "symbol": "WIN",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D8",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D8",
+          "symbol": "CLAIM",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D8",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D8",
+          "symbol": "NOW",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D8",
+          "symbol": "PRIZE",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D8",
+          "symbol": "REWARD",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D8",
+          "symbol": "VERIFY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D8",
+          "symbol": "WIN",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D9",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D9",
+          "symbol": "CLAIM",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D9",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D9",
+          "symbol": "NOW",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D9",
+          "symbol": "PRIZE",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D9",
+          "symbol": "REWARD",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D9",
+          "symbol": "VERIFY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D9",
+          "symbol": "WIN",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D_dead",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D_dead",
+          "symbol": "CLAIM",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D_dead",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D_dead",
+          "symbol": "NOW",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D_dead",
+          "symbol": "PRIZE",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D_dead",
+          "symbol": "REWARD",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D_dead",
+          "symbol": "VERIFY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D_dead",
+          "symbol": "WIN",
+          "to_states": [
+            "D_dead"
+          ]
+        }
+      ]
+    },
+    "model": {
+      "automaton_id": "educational",
+      "name": "Minimized email-pattern DFA",
+      "description": "Computed educational automaton; not a new email rule.",
+      "automaton_type": "dfa",
+      "states": [
+        "M0",
+        "M1",
+        "M2",
+        "M3",
+        "M4",
+        "M5",
+        "M6",
+        "M7"
+      ],
+      "alphabet": [
+        "ACCOUNT",
+        "CLAIM",
+        "IMMEDIATELY",
+        "NOW",
+        "PRIZE",
+        "REWARD",
+        "VERIFY",
+        "WIN"
+      ],
+      "start_state": "M0",
+      "accepting_states": [
+        "M7"
+      ],
+      "transitions": [
+        {
+          "from_state": "M0",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "M2"
+          ]
+        },
+        {
+          "from_state": "M0",
+          "symbol": "CLAIM",
+          "to_states": [
+            "M3"
+          ]
+        },
+        {
+          "from_state": "M0",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M0",
+          "symbol": "NOW",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M0",
+          "symbol": "PRIZE",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M0",
+          "symbol": "REWARD",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M0",
+          "symbol": "VERIFY",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M0",
+          "symbol": "WIN",
+          "to_states": [
+            "M4"
+          ]
+        },
+        {
+          "from_state": "M1",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M1",
+          "symbol": "CLAIM",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M1",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M1",
+          "symbol": "NOW",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M1",
+          "symbol": "PRIZE",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M1",
+          "symbol": "REWARD",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M1",
+          "symbol": "VERIFY",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M1",
+          "symbol": "WIN",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M2",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M2",
+          "symbol": "CLAIM",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M2",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M2",
+          "symbol": "NOW",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M2",
+          "symbol": "PRIZE",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M2",
+          "symbol": "REWARD",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M2",
+          "symbol": "VERIFY",
+          "to_states": [
+            "M5"
+          ]
+        },
+        {
+          "from_state": "M2",
+          "symbol": "WIN",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M3",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M3",
+          "symbol": "CLAIM",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M3",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M3",
+          "symbol": "NOW",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M3",
+          "symbol": "PRIZE",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M3",
+          "symbol": "REWARD",
+          "to_states": [
+            "M6"
+          ]
+        },
+        {
+          "from_state": "M3",
+          "symbol": "VERIFY",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M3",
+          "symbol": "WIN",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M4",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M4",
+          "symbol": "CLAIM",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M4",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M4",
+          "symbol": "NOW",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M4",
+          "symbol": "PRIZE",
+          "to_states": [
+            "M6"
+          ]
+        },
+        {
+          "from_state": "M4",
+          "symbol": "REWARD",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M4",
+          "symbol": "VERIFY",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M4",
+          "symbol": "WIN",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M5",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M5",
+          "symbol": "CLAIM",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M5",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "M7"
+          ]
+        },
+        {
+          "from_state": "M5",
+          "symbol": "NOW",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M5",
+          "symbol": "PRIZE",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M5",
+          "symbol": "REWARD",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M5",
+          "symbol": "VERIFY",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M5",
+          "symbol": "WIN",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M6",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M6",
+          "symbol": "CLAIM",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M6",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M6",
+          "symbol": "NOW",
+          "to_states": [
+            "M7"
+          ]
+        },
+        {
+          "from_state": "M6",
+          "symbol": "PRIZE",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M6",
+          "symbol": "REWARD",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M6",
+          "symbol": "VERIFY",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M6",
+          "symbol": "WIN",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M7",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M7",
+          "symbol": "CLAIM",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M7",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M7",
+          "symbol": "NOW",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M7",
+          "symbol": "PRIZE",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M7",
+          "symbol": "REWARD",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M7",
+          "symbol": "VERIFY",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M7",
+          "symbol": "WIN",
+          "to_states": [
+            "M1"
+          ]
+        }
+      ]
+    },
+    "steps": [
+      {
+        "partitions": [
+          [
+            "D0",
+            "D1",
+            "D2",
+            "D3",
+            "D4",
+            "D5",
+            "D6",
+            "D_dead"
+          ],
+          [
+            "D7",
+            "D8",
+            "D9"
+          ]
+        ],
+        "splits": [],
+        "explanation": "Initial accepting and non-accepting partitions; unreachable states removed."
+      },
+      {
+        "partitions": [
+          [
+            "D0",
+            "D1",
+            "D2",
+            "D3",
+            "D_dead"
+          ],
+          [
+            "D4"
+          ],
+          [
+            "D5",
+            "D6"
+          ],
+          [
+            "D7",
+            "D8",
+            "D9"
+          ]
+        ],
+        "splits": [
+          {
+            "block": [
+              "D0",
+              "D1",
+              "D2",
+              "D3",
+              "D4",
+              "D5",
+              "D6",
+              "D_dead"
+            ],
+            "groups": [
+              {
+                "states": [
+                  "D0",
+                  "D1",
+                  "D2",
+                  "D3",
+                  "D_dead"
+                ],
+                "signature": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "states": [
+                  "D4"
+                ],
+                "signature": [
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "states": [
+                  "D5",
+                  "D6"
+                ],
+                "signature": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          }
+        ],
+        "explanation": "Split states whose destinations belong to different partition blocks for at least one alphabet symbol. Signatures follow alphabet order."
+      },
+      {
+        "partitions": [
+          [
+            "D0",
+            "D_dead"
+          ],
+          [
+            "D1"
+          ],
+          [
+            "D2"
+          ],
+          [
+            "D3"
+          ],
+          [
+            "D4"
+          ],
+          [
+            "D5",
+            "D6"
+          ],
+          [
+            "D7",
+            "D8",
+            "D9"
+          ]
+        ],
+        "splits": [
+          {
+            "block": [
+              "D0",
+              "D1",
+              "D2",
+              "D3",
+              "D_dead"
+            ],
+            "groups": [
+              {
+                "states": [
+                  "D0",
+                  "D_dead"
+                ],
+                "signature": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "states": [
+                  "D1"
+                ],
+                "signature": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0
+                ]
+              },
+              {
+                "states": [
+                  "D2"
+                ],
+                "signature": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  2,
+                  0,
+                  0
+                ]
+              },
+              {
+                "states": [
+                  "D3"
+                ],
+                "signature": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  2,
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          }
+        ],
+        "explanation": "Split states whose destinations belong to different partition blocks for at least one alphabet symbol. Signatures follow alphabet order."
+      },
+      {
+        "partitions": [
+          [
+            "D0"
+          ],
+          [
+            "D_dead"
+          ],
+          [
+            "D1"
+          ],
+          [
+            "D2"
+          ],
+          [
+            "D3"
+          ],
+          [
+            "D4"
+          ],
+          [
+            "D5",
+            "D6"
+          ],
+          [
+            "D7",
+            "D8",
+            "D9"
+          ]
+        ],
+        "splits": [
+          {
+            "block": [
+              "D0",
+              "D_dead"
+            ],
+            "groups": [
+              {
+                "states": [
+                  "D0"
+                ],
+                "signature": [
+                  1,
+                  2,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  3
+                ]
+              },
+              {
+                "states": [
+                  "D_dead"
+                ],
+                "signature": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          }
+        ],
+        "explanation": "Split states whose destinations belong to different partition blocks for at least one alphabet symbol. Signatures follow alphabet order."
+      }
+    ],
+    "classes": [
+      {
+        "state": "M0",
+        "members": [
+          "D0"
+        ]
+      },
+      {
+        "state": "M1",
+        "members": [
+          "D_dead"
+        ]
+      },
+      {
+        "state": "M2",
+        "members": [
+          "D1"
+        ]
+      },
+      {
+        "state": "M3",
+        "members": [
+          "D2"
+        ]
+      },
+      {
+        "state": "M4",
+        "members": [
+          "D3"
+        ]
+      },
+      {
+        "state": "M5",
+        "members": [
+          "D4"
+        ]
+      },
+      {
+        "state": "M6",
+        "members": [
+          "D5",
+          "D6"
+        ]
+      },
+      {
+        "state": "M7",
+        "members": [
+          "D7",
+          "D8",
+          "D9"
+        ]
+      }
+    ],
+    "removed_unreachable": [],
+    "before_count": 11,
+    "after_count": 8
+  },
+  "equivalent": {
+    "equivalent": true,
+    "witness": null,
+    "path": [],
+    "exploration": [
+      {
+        "left": "D0",
+        "right": "M0",
+        "left_accepting": false,
+        "right_accepting": false,
+        "distinguishing": false
+      },
+      {
+        "left": "D1",
+        "right": "M2",
+        "left_accepting": false,
+        "right_accepting": false,
+        "distinguishing": false
+      },
+      {
+        "left": "D2",
+        "right": "M3",
+        "left_accepting": false,
+        "right_accepting": false,
+        "distinguishing": false
+      },
+      {
+        "left": "D_dead",
+        "right": "M1",
+        "left_accepting": false,
+        "right_accepting": false,
+        "distinguishing": false
+      },
+      {
+        "left": "D3",
+        "right": "M4",
+        "left_accepting": false,
+        "right_accepting": false,
+        "distinguishing": false
+      },
+      {
+        "left": "D4",
+        "right": "M5",
+        "left_accepting": false,
+        "right_accepting": false,
+        "distinguishing": false
+      },
+      {
+        "left": "D5",
+        "right": "M6",
+        "left_accepting": false,
+        "right_accepting": false,
+        "distinguishing": false
+      },
+      {
+        "left": "D6",
+        "right": "M6",
+        "left_accepting": false,
+        "right_accepting": false,
+        "distinguishing": false
+      },
+      {
+        "left": "D7",
+        "right": "M7",
+        "left_accepting": true,
+        "right_accepting": true,
+        "distinguishing": false
+      },
+      {
+        "left": "D8",
+        "right": "M7",
+        "left_accepting": true,
+        "right_accepting": true,
+        "distinguishing": false
+      },
+      {
+        "left": "D9",
+        "right": "M7",
+        "left_accepting": true,
+        "right_accepting": true,
+        "distinguishing": false
+      }
+    ],
+    "left": {
+      "automaton_id": "educational",
+      "name": "Subset DFA",
+      "description": "Computed educational automaton; not a new email rule.",
+      "automaton_type": "dfa",
+      "states": [
+        "D0",
+        "D1",
+        "D2",
+        "D_dead",
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "D7",
+        "D8",
+        "D9"
+      ],
+      "alphabet": [
+        "ACCOUNT",
+        "CLAIM",
+        "IMMEDIATELY",
+        "NOW",
+        "PRIZE",
+        "REWARD",
+        "VERIFY",
+        "WIN"
+      ],
+      "start_state": "D0",
+      "accepting_states": [
+        "D7",
+        "D8",
+        "D9"
+      ],
+      "transitions": [
+        {
+          "from_state": "D0",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "D1"
+          ]
+        },
+        {
+          "from_state": "D0",
+          "symbol": "CLAIM",
+          "to_states": [
+            "D2"
+          ]
+        },
+        {
+          "from_state": "D0",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D0",
+          "symbol": "NOW",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D0",
+          "symbol": "PRIZE",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D0",
+          "symbol": "REWARD",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D0",
+          "symbol": "VERIFY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D0",
+          "symbol": "WIN",
+          "to_states": [
+            "D3"
+          ]
+        },
+        {
+          "from_state": "D1",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D1",
+          "symbol": "CLAIM",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D1",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D1",
+          "symbol": "NOW",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D1",
+          "symbol": "PRIZE",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D1",
+          "symbol": "REWARD",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D1",
+          "symbol": "VERIFY",
+          "to_states": [
+            "D4"
+          ]
+        },
+        {
+          "from_state": "D1",
+          "symbol": "WIN",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D2",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D2",
+          "symbol": "CLAIM",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D2",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D2",
+          "symbol": "NOW",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D2",
+          "symbol": "PRIZE",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D2",
+          "symbol": "REWARD",
+          "to_states": [
+            "D5"
+          ]
+        },
+        {
+          "from_state": "D2",
+          "symbol": "VERIFY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D2",
+          "symbol": "WIN",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D_dead",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D_dead",
+          "symbol": "CLAIM",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D_dead",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D_dead",
+          "symbol": "NOW",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D_dead",
+          "symbol": "PRIZE",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D_dead",
+          "symbol": "REWARD",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D_dead",
+          "symbol": "VERIFY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D_dead",
+          "symbol": "WIN",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D3",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D3",
+          "symbol": "CLAIM",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D3",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D3",
+          "symbol": "NOW",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D3",
+          "symbol": "PRIZE",
+          "to_states": [
+            "D6"
+          ]
+        },
+        {
+          "from_state": "D3",
+          "symbol": "REWARD",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D3",
+          "symbol": "VERIFY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D3",
+          "symbol": "WIN",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D4",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D4",
+          "symbol": "CLAIM",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D4",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "D7"
+          ]
+        },
+        {
+          "from_state": "D4",
+          "symbol": "NOW",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D4",
+          "symbol": "PRIZE",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D4",
+          "symbol": "REWARD",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D4",
+          "symbol": "VERIFY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D4",
+          "symbol": "WIN",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D5",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D5",
+          "symbol": "CLAIM",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D5",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D5",
+          "symbol": "NOW",
+          "to_states": [
+            "D8"
+          ]
+        },
+        {
+          "from_state": "D5",
+          "symbol": "PRIZE",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D5",
+          "symbol": "REWARD",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D5",
+          "symbol": "VERIFY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D5",
+          "symbol": "WIN",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D6",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D6",
+          "symbol": "CLAIM",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D6",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D6",
+          "symbol": "NOW",
+          "to_states": [
+            "D9"
+          ]
+        },
+        {
+          "from_state": "D6",
+          "symbol": "PRIZE",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D6",
+          "symbol": "REWARD",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D6",
+          "symbol": "VERIFY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D6",
+          "symbol": "WIN",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D7",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D7",
+          "symbol": "CLAIM",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D7",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D7",
+          "symbol": "NOW",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D7",
+          "symbol": "PRIZE",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D7",
+          "symbol": "REWARD",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D7",
+          "symbol": "VERIFY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D7",
+          "symbol": "WIN",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D8",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D8",
+          "symbol": "CLAIM",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D8",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D8",
+          "symbol": "NOW",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D8",
+          "symbol": "PRIZE",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D8",
+          "symbol": "REWARD",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D8",
+          "symbol": "VERIFY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D8",
+          "symbol": "WIN",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D9",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D9",
+          "symbol": "CLAIM",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D9",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D9",
+          "symbol": "NOW",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D9",
+          "symbol": "PRIZE",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D9",
+          "symbol": "REWARD",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D9",
+          "symbol": "VERIFY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D9",
+          "symbol": "WIN",
+          "to_states": [
+            "D_dead"
+          ]
+        }
+      ]
+    },
+    "right": {
+      "automaton_id": "educational",
+      "name": "Minimized email-pattern DFA",
+      "description": "Computed educational automaton; not a new email rule.",
+      "automaton_type": "dfa",
+      "states": [
+        "M0",
+        "M1",
+        "M2",
+        "M3",
+        "M4",
+        "M5",
+        "M6",
+        "M7"
+      ],
+      "alphabet": [
+        "ACCOUNT",
+        "CLAIM",
+        "IMMEDIATELY",
+        "NOW",
+        "PRIZE",
+        "REWARD",
+        "VERIFY",
+        "WIN"
+      ],
+      "start_state": "M0",
+      "accepting_states": [
+        "M7"
+      ],
+      "transitions": [
+        {
+          "from_state": "M0",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "M2"
+          ]
+        },
+        {
+          "from_state": "M0",
+          "symbol": "CLAIM",
+          "to_states": [
+            "M3"
+          ]
+        },
+        {
+          "from_state": "M0",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M0",
+          "symbol": "NOW",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M0",
+          "symbol": "PRIZE",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M0",
+          "symbol": "REWARD",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M0",
+          "symbol": "VERIFY",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M0",
+          "symbol": "WIN",
+          "to_states": [
+            "M4"
+          ]
+        },
+        {
+          "from_state": "M1",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M1",
+          "symbol": "CLAIM",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M1",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M1",
+          "symbol": "NOW",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M1",
+          "symbol": "PRIZE",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M1",
+          "symbol": "REWARD",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M1",
+          "symbol": "VERIFY",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M1",
+          "symbol": "WIN",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M2",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M2",
+          "symbol": "CLAIM",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M2",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M2",
+          "symbol": "NOW",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M2",
+          "symbol": "PRIZE",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M2",
+          "symbol": "REWARD",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M2",
+          "symbol": "VERIFY",
+          "to_states": [
+            "M5"
+          ]
+        },
+        {
+          "from_state": "M2",
+          "symbol": "WIN",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M3",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M3",
+          "symbol": "CLAIM",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M3",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M3",
+          "symbol": "NOW",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M3",
+          "symbol": "PRIZE",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M3",
+          "symbol": "REWARD",
+          "to_states": [
+            "M6"
+          ]
+        },
+        {
+          "from_state": "M3",
+          "symbol": "VERIFY",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M3",
+          "symbol": "WIN",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M4",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M4",
+          "symbol": "CLAIM",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M4",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M4",
+          "symbol": "NOW",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M4",
+          "symbol": "PRIZE",
+          "to_states": [
+            "M6"
+          ]
+        },
+        {
+          "from_state": "M4",
+          "symbol": "REWARD",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M4",
+          "symbol": "VERIFY",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M4",
+          "symbol": "WIN",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M5",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M5",
+          "symbol": "CLAIM",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M5",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "M7"
+          ]
+        },
+        {
+          "from_state": "M5",
+          "symbol": "NOW",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M5",
+          "symbol": "PRIZE",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M5",
+          "symbol": "REWARD",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M5",
+          "symbol": "VERIFY",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M5",
+          "symbol": "WIN",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M6",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M6",
+          "symbol": "CLAIM",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M6",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M6",
+          "symbol": "NOW",
+          "to_states": [
+            "M7"
+          ]
+        },
+        {
+          "from_state": "M6",
+          "symbol": "PRIZE",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M6",
+          "symbol": "REWARD",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M6",
+          "symbol": "VERIFY",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M6",
+          "symbol": "WIN",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M7",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M7",
+          "symbol": "CLAIM",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M7",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M7",
+          "symbol": "NOW",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M7",
+          "symbol": "PRIZE",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M7",
+          "symbol": "REWARD",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M7",
+          "symbol": "VERIFY",
+          "to_states": [
+            "M1"
+          ]
+        },
+        {
+          "from_state": "M7",
+          "symbol": "WIN",
+          "to_states": [
+            "M1"
+          ]
+        }
+      ]
+    },
+    "alphabet": [
+      "ACCOUNT",
+      "CLAIM",
+      "IMMEDIATELY",
+      "NOW",
+      "PRIZE",
+      "REWARD",
+      "VERIFY",
+      "WIN"
+    ]
+  },
+  "different": {
+    "equivalent": false,
+    "witness": [
+      "ACCOUNT",
+      "VERIFY",
+      "IMMEDIATELY"
+    ],
+    "path": [
+      {
+        "left": "q0",
+        "right": "D0"
+      },
+      {
+        "left": "q_dead",
+        "right": "D1"
+      },
+      {
+        "left": "q_dead",
+        "right": "D4"
+      },
+      {
+        "left": "q_dead",
+        "right": "D7"
+      }
+    ],
+    "exploration": [
+      {
+        "left": "q0",
+        "right": "D0",
+        "left_accepting": false,
+        "right_accepting": false,
+        "distinguishing": false
+      },
+      {
+        "left": "q_dead",
+        "right": "D1",
+        "left_accepting": false,
+        "right_accepting": false,
+        "distinguishing": false
+      },
+      {
+        "left": "q_dead",
+        "right": "D2",
+        "left_accepting": false,
+        "right_accepting": false,
+        "distinguishing": false
+      },
+      {
+        "left": "q_dead",
+        "right": "D_dead",
+        "left_accepting": false,
+        "right_accepting": false,
+        "distinguishing": false
+      },
+      {
+        "left": "q1",
+        "right": "D3",
+        "left_accepting": false,
+        "right_accepting": false,
+        "distinguishing": false
+      },
+      {
+        "left": "q_dead",
+        "right": null,
+        "left_accepting": false,
+        "right_accepting": false,
+        "distinguishing": false
+      },
+      {
+        "left": "q_dead",
+        "right": "D4",
+        "left_accepting": false,
+        "right_accepting": false,
+        "distinguishing": false
+      },
+      {
+        "left": "q_dead",
+        "right": "D5",
+        "left_accepting": false,
+        "right_accepting": false,
+        "distinguishing": false
+      },
+      {
+        "left": "q2",
+        "right": "D6",
+        "left_accepting": false,
+        "right_accepting": false,
+        "distinguishing": false
+      },
+      {
+        "left": "q_dead",
+        "right": "D7",
+        "left_accepting": false,
+        "right_accepting": true,
+        "distinguishing": true
+      }
+    ],
+    "left": {
+      "automaton_id": "dfa_win_prize_now",
+      "name": "DFA: WIN PRIZE NOW",
+      "description": "Recognizes exactly the token sequence WIN PRIZE NOW.",
+      "automaton_type": "dfa",
+      "states": [
+        "q0",
+        "q1",
+        "q2",
+        "q3",
+        "q_dead"
+      ],
+      "alphabet": [
+        "WIN",
+        "PRIZE",
+        "NOW",
+        "other"
+      ],
+      "start_state": "q0",
+      "accepting_states": [
+        "q3"
+      ],
+      "transitions": [
+        {
+          "from_state": "q0",
+          "symbol": "WIN",
+          "to_states": [
+            "q1"
+          ]
+        },
+        {
+          "from_state": "q0",
+          "symbol": "PRIZE",
+          "to_states": [
+            "q_dead"
+          ]
+        },
+        {
+          "from_state": "q0",
+          "symbol": "NOW",
+          "to_states": [
+            "q_dead"
+          ]
+        },
+        {
+          "from_state": "q0",
+          "symbol": "other",
+          "to_states": [
+            "q_dead"
+          ]
+        },
+        {
+          "from_state": "q1",
+          "symbol": "WIN",
+          "to_states": [
+            "q_dead"
+          ]
+        },
+        {
+          "from_state": "q1",
+          "symbol": "PRIZE",
+          "to_states": [
+            "q2"
+          ]
+        },
+        {
+          "from_state": "q1",
+          "symbol": "NOW",
+          "to_states": [
+            "q_dead"
+          ]
+        },
+        {
+          "from_state": "q1",
+          "symbol": "other",
+          "to_states": [
+            "q_dead"
+          ]
+        },
+        {
+          "from_state": "q2",
+          "symbol": "WIN",
+          "to_states": [
+            "q_dead"
+          ]
+        },
+        {
+          "from_state": "q2",
+          "symbol": "PRIZE",
+          "to_states": [
+            "q_dead"
+          ]
+        },
+        {
+          "from_state": "q2",
+          "symbol": "NOW",
+          "to_states": [
+            "q3"
+          ]
+        },
+        {
+          "from_state": "q2",
+          "symbol": "other",
+          "to_states": [
+            "q_dead"
+          ]
+        },
+        {
+          "from_state": "q3",
+          "symbol": "WIN",
+          "to_states": [
+            "q_dead"
+          ]
+        },
+        {
+          "from_state": "q3",
+          "symbol": "PRIZE",
+          "to_states": [
+            "q_dead"
+          ]
+        },
+        {
+          "from_state": "q3",
+          "symbol": "NOW",
+          "to_states": [
+            "q_dead"
+          ]
+        },
+        {
+          "from_state": "q3",
+          "symbol": "other",
+          "to_states": [
+            "q_dead"
+          ]
+        },
+        {
+          "from_state": "q_dead",
+          "symbol": "WIN",
+          "to_states": [
+            "q_dead"
+          ]
+        },
+        {
+          "from_state": "q_dead",
+          "symbol": "PRIZE",
+          "to_states": [
+            "q_dead"
+          ]
+        },
+        {
+          "from_state": "q_dead",
+          "symbol": "NOW",
+          "to_states": [
+            "q_dead"
+          ]
+        },
+        {
+          "from_state": "q_dead",
+          "symbol": "other",
+          "to_states": [
+            "q_dead"
+          ]
+        }
+      ]
+    },
+    "right": {
+      "automaton_id": "educational",
+      "name": "Subset DFA",
+      "description": "Computed educational automaton; not a new email rule.",
+      "automaton_type": "dfa",
+      "states": [
+        "D0",
+        "D1",
+        "D2",
+        "D_dead",
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "D7",
+        "D8",
+        "D9"
+      ],
+      "alphabet": [
+        "ACCOUNT",
+        "CLAIM",
+        "IMMEDIATELY",
+        "NOW",
+        "PRIZE",
+        "REWARD",
+        "VERIFY",
+        "WIN"
+      ],
+      "start_state": "D0",
+      "accepting_states": [
+        "D7",
+        "D8",
+        "D9"
+      ],
+      "transitions": [
+        {
+          "from_state": "D0",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "D1"
+          ]
+        },
+        {
+          "from_state": "D0",
+          "symbol": "CLAIM",
+          "to_states": [
+            "D2"
+          ]
+        },
+        {
+          "from_state": "D0",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D0",
+          "symbol": "NOW",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D0",
+          "symbol": "PRIZE",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D0",
+          "symbol": "REWARD",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D0",
+          "symbol": "VERIFY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D0",
+          "symbol": "WIN",
+          "to_states": [
+            "D3"
+          ]
+        },
+        {
+          "from_state": "D1",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D1",
+          "symbol": "CLAIM",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D1",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D1",
+          "symbol": "NOW",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D1",
+          "symbol": "PRIZE",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D1",
+          "symbol": "REWARD",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D1",
+          "symbol": "VERIFY",
+          "to_states": [
+            "D4"
+          ]
+        },
+        {
+          "from_state": "D1",
+          "symbol": "WIN",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D2",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D2",
+          "symbol": "CLAIM",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D2",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D2",
+          "symbol": "NOW",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D2",
+          "symbol": "PRIZE",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D2",
+          "symbol": "REWARD",
+          "to_states": [
+            "D5"
+          ]
+        },
+        {
+          "from_state": "D2",
+          "symbol": "VERIFY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D2",
+          "symbol": "WIN",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D_dead",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D_dead",
+          "symbol": "CLAIM",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D_dead",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D_dead",
+          "symbol": "NOW",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D_dead",
+          "symbol": "PRIZE",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D_dead",
+          "symbol": "REWARD",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D_dead",
+          "symbol": "VERIFY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D_dead",
+          "symbol": "WIN",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D3",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D3",
+          "symbol": "CLAIM",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D3",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D3",
+          "symbol": "NOW",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D3",
+          "symbol": "PRIZE",
+          "to_states": [
+            "D6"
+          ]
+        },
+        {
+          "from_state": "D3",
+          "symbol": "REWARD",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D3",
+          "symbol": "VERIFY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D3",
+          "symbol": "WIN",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D4",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D4",
+          "symbol": "CLAIM",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D4",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "D7"
+          ]
+        },
+        {
+          "from_state": "D4",
+          "symbol": "NOW",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D4",
+          "symbol": "PRIZE",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D4",
+          "symbol": "REWARD",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D4",
+          "symbol": "VERIFY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D4",
+          "symbol": "WIN",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D5",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D5",
+          "symbol": "CLAIM",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D5",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D5",
+          "symbol": "NOW",
+          "to_states": [
+            "D8"
+          ]
+        },
+        {
+          "from_state": "D5",
+          "symbol": "PRIZE",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D5",
+          "symbol": "REWARD",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D5",
+          "symbol": "VERIFY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D5",
+          "symbol": "WIN",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D6",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D6",
+          "symbol": "CLAIM",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D6",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D6",
+          "symbol": "NOW",
+          "to_states": [
+            "D9"
+          ]
+        },
+        {
+          "from_state": "D6",
+          "symbol": "PRIZE",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D6",
+          "symbol": "REWARD",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D6",
+          "symbol": "VERIFY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D6",
+          "symbol": "WIN",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D7",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D7",
+          "symbol": "CLAIM",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D7",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D7",
+          "symbol": "NOW",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D7",
+          "symbol": "PRIZE",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D7",
+          "symbol": "REWARD",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D7",
+          "symbol": "VERIFY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D7",
+          "symbol": "WIN",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D8",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D8",
+          "symbol": "CLAIM",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D8",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D8",
+          "symbol": "NOW",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D8",
+          "symbol": "PRIZE",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D8",
+          "symbol": "REWARD",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D8",
+          "symbol": "VERIFY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D8",
+          "symbol": "WIN",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D9",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D9",
+          "symbol": "CLAIM",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D9",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D9",
+          "symbol": "NOW",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D9",
+          "symbol": "PRIZE",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D9",
+          "symbol": "REWARD",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D9",
+          "symbol": "VERIFY",
+          "to_states": [
+            "D_dead"
+          ]
+        },
+        {
+          "from_state": "D9",
+          "symbol": "WIN",
+          "to_states": [
+            "D_dead"
+          ]
+        }
+      ]
+    },
+    "alphabet": [
+      "ACCOUNT",
+      "CLAIM",
+      "IMMEDIATELY",
+      "NOW",
+      "PRIZE",
+      "REWARD",
+      "VERIFY",
+      "WIN",
+      "other"
+    ]
+  },
+  "closure": {
+    "model": {
+      "automaton_id": "nfa_phishing_branches",
+      "name": "NFA: Multi-Branch Phishing Recognizer",
+      "description": "Describes three token-sequence branches reached by epsilon moves.",
+      "automaton_type": "nfa",
+      "states": [
+        "s0",
+        "w0",
+        "w1",
+        "w2",
+        "w3",
+        "c0",
+        "c1",
+        "c2",
+        "c3",
+        "a0",
+        "a1",
+        "a2",
+        "a3"
+      ],
+      "alphabet": [
+        "WIN",
+        "PRIZE",
+        "NOW",
+        "CLAIM",
+        "REWARD",
+        "ACCOUNT",
+        "VERIFY",
+        "IMMEDIATELY"
+      ],
+      "start_state": "s0",
+      "accepting_states": [
+        "w3",
+        "c3",
+        "a3"
+      ],
+      "transitions": [
+        {
+          "from_state": "s0",
+          "symbol": null,
+          "to_states": [
+            "w0",
+            "c0",
+            "a0"
+          ]
+        },
+        {
+          "from_state": "w0",
+          "symbol": "WIN",
+          "to_states": [
+            "w1"
+          ]
+        },
+        {
+          "from_state": "w1",
+          "symbol": "PRIZE",
+          "to_states": [
+            "w2"
+          ]
+        },
+        {
+          "from_state": "w2",
+          "symbol": "NOW",
+          "to_states": [
+            "w3"
+          ]
+        },
+        {
+          "from_state": "c0",
+          "symbol": "CLAIM",
+          "to_states": [
+            "c1"
+          ]
+        },
+        {
+          "from_state": "c1",
+          "symbol": "REWARD",
+          "to_states": [
+            "c2"
+          ]
+        },
+        {
+          "from_state": "c2",
+          "symbol": "NOW",
+          "to_states": [
+            "c3"
+          ]
+        },
+        {
+          "from_state": "a0",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "a1"
+          ]
+        },
+        {
+          "from_state": "a1",
+          "symbol": "VERIFY",
+          "to_states": [
+            "a2"
+          ]
+        },
+        {
+          "from_state": "a2",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "a3"
+          ]
+        }
+      ]
+    },
+    "closure": [
+      "a0",
+      "c0",
+      "s0",
+      "w0"
+    ],
+    "steps": [
+      {
+        "source": null,
+        "target": null,
+        "newly_discovered": [
+          "s0"
+        ],
+        "closure": [
+          "s0"
+        ],
+        "explanation": "Initial seed set; zero epsilon moves."
+      },
+      {
+        "source": "s0",
+        "target": "a0",
+        "newly_discovered": [
+          "a0"
+        ],
+        "closure": [
+          "a0",
+          "s0"
+        ],
+        "explanation": "Discover through epsilon."
+      },
+      {
+        "source": "s0",
+        "target": "c0",
+        "newly_discovered": [
+          "c0"
+        ],
+        "closure": [
+          "a0",
+          "c0",
+          "s0"
+        ],
+        "explanation": "Discover through epsilon."
+      },
+      {
+        "source": "s0",
+        "target": "w0",
+        "newly_discovered": [
+          "w0"
+        ],
+        "closure": [
+          "a0",
+          "c0",
+          "s0",
+          "w0"
+        ],
+        "explanation": "Discover through epsilon."
+      }
+    ]
+  },
+  "syntax_error": {
+    "detail": "Unsupported symbol '+' at position 4. Use ASCII literals, |, *, and parentheses; no Python regex classes, escapes or anchors."
+  }
+}

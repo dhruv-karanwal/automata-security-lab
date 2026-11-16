@@ -1,0 +1,30 @@
+# Python caches and generated files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# JavaScript dependencies and build outputs
+node_modules/
+dist/
+build/
+
+# Editor and operating-system files
+.DS_Store
+.idea/
+.vscode/
+*.log
+*.log
+verification/pre-enhancement-source.zip
+verification/oversized.pdf

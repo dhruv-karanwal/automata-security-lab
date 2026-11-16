@@ -1,0 +1,182 @@
+[
+  {
+    "path": "README.md",
+    "status": "modified",
+    "reason": "Current setup/run commands, routes, demo, semantics, grammar and limits."
+  },
+  {
+    "path": "backend/app/engines/subset_construction.py",
+    "status": "modified",
+    "reason": "Optional 256-subset resource guard for constructed educational NFAs."
+  },
+  {
+    "path": "backend/app/engines/teaching.py",
+    "status": "added",
+    "reason": "Thompson parser/construction, epsilon closure/simulation, completion, refinement and exact product search."
+  },
+  {
+    "path": "backend/app/lab.py",
+    "status": "added",
+    "reason": "Validated bounded educational API requests/endpoints, without changing detection API."
+  },
+  {
+    "path": "backend/app/main.py",
+    "status": "modified",
+    "reason": "Register the additive educational router; preserve original routes."
+  },
+  {
+    "path": "backend/tests/test_teaching.py",
+    "status": "added",
+    "reason": "Language-level algorithm regressions, API validation, exact witnesses and resource limits."
+  },
+  {
+    "path": "docs/ENHANCEMENT_AUDIT.md",
+    "status": "added",
+    "reason": "Pre-edit source audit and baseline results."
+  },
+  {
+    "path": "docs/ENHANCEMENT_VERIFICATION.md",
+    "status": "added",
+    "reason": "Final verified results, remaining limits and complete change inventory."
+  },
+  {
+    "path": "docs/PROJECT_REPORT.md",
+    "status": "modified",
+    "reason": "Actual algorithms, formal definitions, APIs, complexity, testing and viva content."
+  },
+  {
+    "path": "frontend/README.md",
+    "status": "modified",
+    "reason": "Frontend routes, proxy/run commands and verification."
+  },
+  {
+    "path": "frontend/format-enhancement.mjs",
+    "status": "added",
+    "reason": "Formatting helper using already-installed esbuild; no project dependency added."
+  },
+  {
+    "path": "frontend/src/App.jsx",
+    "status": "modified",
+    "reason": "Four primary routes, legacy redirects and lazy-loaded advanced pages."
+  },
+  {
+    "path": "frontend/src/components/AutomataGraph.jsx",
+    "status": "modified",
+    "reason": "Reuse React Flow with real transition identities, grouped labels, readable fallback lanes/loops and resize refit."
+  },
+  {
+    "path": "frontend/src/components/AutomataNode.jsx",
+    "status": "modified",
+    "reason": "Accessible start/accept/active/dead state markers and graph handles."
+  },
+  {
+    "path": "frontend/src/components/ExecutionTraceView.jsx",
+    "status": "modified",
+    "reason": "Reusable trace table synchronized to the playback cursor."
+  },
+  {
+    "path": "frontend/src/components/Header.jsx",
+    "status": "modified",
+    "reason": "Shared workspace header and real backend health status."
+  },
+  {
+    "path": "frontend/src/components/NfaToDfaConversion.jsx",
+    "status": "modified",
+    "reason": "Stepwise real subset result, source/generated graphs, subsets and synchronized table."
+  },
+  {
+    "path": "frontend/src/components/ResultsPanel.jsx",
+    "status": "modified",
+    "reason": "Compact verdict/evidence, Unicode highlighting, accepted-state previews and source-aware trace links."
+  },
+  {
+    "path": "frontend/src/components/Sidebar.jsx",
+    "status": "modified",
+    "reason": "Four-section responsive navigation."
+  },
+  {
+    "path": "frontend/src/components/StepControls.jsx",
+    "status": "added",
+    "reason": "Shared Next/Back/Play/Pause/Reset and keyboard-operable slider; timer cleanup."
+  },
+  {
+    "path": "frontend/src/components/TransitionTable.jsx",
+    "status": "added",
+    "reason": "Accessible text alternative from actual model transitions and current edges."
+  },
+  {
+    "path": "frontend/src/components/studios/ClosureStudio.jsx",
+    "status": "added",
+    "reason": "Dedicated closure algorithm controls, computed intermediate results and visualization."
+  },
+  {
+    "path": "frontend/src/components/studios/EquivalenceStudio.jsx",
+    "status": "added",
+    "reason": "Dedicated equivalence algorithm controls, computed intermediate results and visualization."
+  },
+  {
+    "path": "frontend/src/components/studios/MinimizeStudio.jsx",
+    "status": "added",
+    "reason": "Dedicated minimize algorithm controls, computed intermediate results and visualization."
+  },
+  {
+    "path": "frontend/src/components/studios/RegexStudio.jsx",
+    "status": "added",
+    "reason": "Dedicated regex algorithm controls, computed intermediate results and visualization."
+  },
+  {
+    "path": "frontend/src/components/ui.jsx",
+    "status": "added",
+    "reason": "Shared panels, page intros, metrics and error states."
+  },
+  {
+    "path": "frontend/src/hooks/useJob.js",
+    "status": "added",
+    "reason": "Shared explicit asynchronous operation/loading/error state."
+  },
+  {
+    "path": "frontend/src/index.css",
+    "status": "modified",
+    "reason": "Fixed dark palette, shared UI tokens, responsive/keyboard/reduced-motion styling."
+  },
+  {
+    "path": "frontend/src/pages/AboutPage.jsx",
+    "status": "modified",
+    "reason": "Consistent dark scope/privacy view."
+  },
+  {
+    "path": "frontend/src/pages/AutomataLabPage.jsx",
+    "status": "modified",
+    "reason": "Real backend DFA/NFA playback and evidence-to-trace navigation."
+  },
+  {
+    "path": "frontend/src/pages/DashboardPage.jsx",
+    "status": "modified",
+    "reason": "Subject/body and PDF analysis with validated inputs, shared state and real API results."
+  },
+  {
+    "path": "frontend/src/pages/TeachingLabPage.jsx",
+    "status": "added",
+    "reason": "Route-aware five-tool lab workspace."
+  },
+  {
+    "path": "frontend/src/pages/TheoryAboutPage.jsx",
+    "status": "modified",
+    "reason": "Actual concepts, grammar, fixed-rule catalogue, complexity and viva questions."
+  },
+  {
+    "path": "frontend/src/services/api.js",
+    "status": "modified",
+    "reason": "Explicit lab requests; correct backend startup hint."
+  },
+  {
+    "path": "frontend/src/utils/traceModel.js",
+    "status": "added",
+    "reason": "Pure edge identity, closure and trace projections; no coincidental visited-node paths."
+  },
+  {
+    "path": "frontend/src/utils/traceModel.test.ts",
+    "status": "added",
+    "reason": "Branch/cycle, real-edge and cursor-bound regressions."
+  }
+]

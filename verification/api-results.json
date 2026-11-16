@@ -1,0 +1,3176 @@
+[
+  {
+    "check": "health",
+    "status": 200,
+    "response": {
+      "status": "ok",
+      "project": "Automata Security Lab"
+    }
+  },
+  {
+    "check": "valid.pdf",
+    "status": 200,
+    "response": {
+      "filename": "valid.pdf",
+      "extracted_text": "WIN PRIZE NOW",
+      "page_count": 1,
+      "character_count": 13,
+      "extraction_note": "Selectable text was extracted locally in memory. Review and edit it before analysis if the PDF layout changed the reading order."
+    }
+  },
+  {
+    "check": "extract then dfa",
+    "status": 200,
+    "response": {
+      "classification": "suspicious",
+      "risk_score": 100,
+      "mode": "dfa",
+      "dfa_result": {
+        "engine": "dfa",
+        "matched": true,
+        "accepted": true,
+        "matched_patterns": [
+          {
+            "pattern_id": "dfa_win_prize_now",
+            "name": "Exact sequence: WIN PRIZE NOW",
+            "category": "suspicious_phrase",
+            "explanation": "",
+            "evidence": [
+              {
+                "source": "body",
+                "text": "WIN PRIZE NOW",
+                "start_index": 0,
+                "end_index": 13
+              }
+            ]
+          }
+        ],
+        "final_states": [
+          "q3"
+        ],
+        "active_states": [
+          "q3"
+        ],
+        "trace": [
+          {
+            "step": 0,
+            "input_index": 0,
+            "symbol": null,
+            "states_before": [
+              "q0"
+            ],
+            "states_after": [
+              "q0"
+            ],
+            "transitions_taken": [],
+            "explanation": "Begin in start state q0 without consuming input.",
+            "remaining_input": [
+              "WIN",
+              "PRIZE",
+              "NOW"
+            ]
+          },
+          {
+            "step": 1,
+            "input_index": 0,
+            "symbol": "WIN",
+            "states_before": [
+              "q0"
+            ],
+            "states_after": [
+              "q1"
+            ],
+            "transitions_taken": [],
+            "explanation": "Consume 'WIN': q0 transitions to q1.",
+            "remaining_input": [
+              "PRIZE",
+              "NOW"
+            ]
+          },
+          {
+            "step": 2,
+            "input_index": 1,
+            "symbol": "PRIZE",
+            "states_before": [
+              "q1"
+            ],
+            "states_after": [
+              "q2"
+            ],
+            "transitions_taken": [],
+            "explanation": "Consume 'PRIZE': q1 transitions to q2.",
+            "remaining_input": [
+              "NOW"
+            ]
+          },
+          {
+            "step": 3,
+            "input_index": 2,
+            "symbol": "NOW",
+            "states_before": [
+              "q2"
+            ],
+            "states_after": [
+              "q3"
+            ],
+            "transitions_taken": [],
+            "explanation": "Consume 'NOW': q2 transitions to q3.",
+            "remaining_input": []
+          }
+        ],
+        "explanation": "The complete input matched the configured sequence WIN PRIZE NOW."
+      },
+      "nfa_result": null,
+      "regex_result": null,
+      "no_match_warning": "No configured patterns matched. This does not guarantee that the message is safe."
+    }
+  },
+  {
+    "check": "extract then nfa",
+    "status": 200,
+    "response": {
+      "classification": "suspicious",
+      "risk_score": 100,
+      "mode": "nfa",
+      "dfa_result": null,
+      "nfa_result": {
+        "engine": "nfa",
+        "matched": true,
+        "accepted": true,
+        "matched_patterns": [
+          {
+            "pattern_id": "nfa_win_prize_now",
+            "name": "Exact sequence: WIN PRIZE NOW",
+            "category": "suspicious_phrase",
+            "explanation": "",
+            "evidence": [
+              {
+                "source": "body",
+                "text": "WIN PRIZE NOW",
+                "start_index": 0,
+                "end_index": 13
+              }
+            ]
+          }
+        ],
+        "final_states": [
+          "w3"
+        ],
+        "active_states": [
+          "w3"
+        ],
+        "trace": [
+          {
+            "step": 0,
+            "input_index": 0,
+            "symbol": null,
+            "states_before": [
+              "s0"
+            ],
+            "states_after": [
+              "a0",
+              "c0",
+              "s0",
+              "w0"
+            ],
+            "transitions_taken": [
+              "s0 --\u03b5--> a0",
+              "s0 --\u03b5--> c0",
+              "s0 --\u03b5--> w0"
+            ],
+            "explanation": "Apply epsilon closure before reading input.",
+            "remaining_input": [
+              "WIN",
+              "PRIZE",
+              "NOW"
+            ]
+          },
+          {
+            "step": 1,
+            "input_index": 0,
+            "symbol": "WIN",
+            "states_before": [
+              "a0",
+              "c0",
+              "s0",
+              "w0"
+            ],
+            "states_after": [
+              "w1"
+            ],
+            "transitions_taken": [
+              "w0 --WIN--> w1"
+            ],
+            "explanation": "w0 --WIN--> w1",
+            "remaining_input": [
+              "PRIZE",
+              "NOW"
+            ]
+          },
+          {
+            "step": 2,
+            "input_index": 1,
+            "symbol": "PRIZE",
+            "states_before": [
+              "w1"
+            ],
+            "states_after": [
+              "w2"
+            ],
+            "transitions_taken": [
+              "w1 --PRIZE--> w2"
+            ],
+            "explanation": "w1 --PRIZE--> w2",
+            "remaining_input": [
+              "NOW"
+            ]
+          },
+          {
+            "step": 3,
+            "input_index": 2,
+            "symbol": "NOW",
+            "states_before": [
+              "w2"
+            ],
+            "states_after": [
+              "w3"
+            ],
+            "transitions_taken": [
+              "w2 --NOW--> w3"
+            ],
+            "explanation": "w2 --NOW--> w3",
+            "remaining_input": []
+          }
+        ],
+        "explanation": "At least one NFA path accepted a configured phrase. This pattern match is not, by itself, proof that the email is malicious."
+      },
+      "regex_result": null,
+      "no_match_warning": "No configured patterns matched. This does not guarantee that the message is safe."
+    }
+  },
+  {
+    "check": "extract then regex",
+    "status": 200,
+    "response": {
+      "classification": "suspicious",
+      "risk_score": 20,
+      "mode": "regex",
+      "dfa_result": null,
+      "nfa_result": null,
+      "regex_result": {
+        "engine": "regex",
+        "matched": true,
+        "matched_patterns": [
+          {
+            "pattern_id": "RULE-PHRASE-WIN",
+            "name": "Suspicious Phrase: WIN PRIZE NOW",
+            "category": "urgency_phrase",
+            "explanation": "This prize-and-urgency wording is a configured social-engineering cue.",
+            "evidence": [
+              {
+                "source": "body",
+                "text": "WIN PRIZE NOW",
+                "start_index": 0,
+                "end_index": 13
+              }
+            ]
+          }
+        ],
+        "explanation": "Matched 1 configured regex rule(s). Matches are indicators for review, not proof of phishing."
+      },
+      "no_match_warning": "No configured patterns matched. This does not guarantee that the message is safe."
+    }
+  },
+  {
+    "check": "extract then combined",
+    "status": 200,
+    "response": {
+      "classification": "suspicious",
+      "risk_score": 100,
+      "mode": "combined",
+      "dfa_result": {
+        "engine": "dfa",
+        "matched": true,
+        "accepted": true,
+        "matched_patterns": [
+          {
+            "pattern_id": "dfa_win_prize_now",
+            "name": "Exact sequence: WIN PRIZE NOW",
+            "category": "suspicious_phrase",
+            "explanation": "",
+            "evidence": [
+              {
+                "source": "body",
+                "text": "WIN PRIZE NOW",
+                "start_index": 0,
+                "end_index": 13
+              }
+            ]
+          }
+        ],
+        "final_states": [
+          "q3"
+        ],
+        "active_states": [
+          "q3"
+        ],
+        "trace": [
+          {
+            "step": 0,
+            "input_index": 0,
+            "symbol": null,
+            "states_before": [
+              "q0"
+            ],
+            "states_after": [
+              "q0"
+            ],
+            "transitions_taken": [],
+            "explanation": "Begin in start state q0 without consuming input.",
+            "remaining_input": [
+              "WIN",
+              "PRIZE",
+              "NOW"
+            ]
+          },
+          {
+            "step": 1,
+            "input_index": 0,
+            "symbol": "WIN",
+            "states_before": [
+              "q0"
+            ],
+            "states_after": [
+              "q1"
+            ],
+            "transitions_taken": [],
+            "explanation": "Consume 'WIN': q0 transitions to q1.",
+            "remaining_input": [
+              "PRIZE",
+              "NOW"
+            ]
+          },
+          {
+            "step": 2,
+            "input_index": 1,
+            "symbol": "PRIZE",
+            "states_before": [
+              "q1"
+            ],
+            "states_after": [
+              "q2"
+            ],
+            "transitions_taken": [],
+            "explanation": "Consume 'PRIZE': q1 transitions to q2.",
+            "remaining_input": [
+              "NOW"
+            ]
+          },
+          {
+            "step": 3,
+            "input_index": 2,
+            "symbol": "NOW",
+            "states_before": [
+              "q2"
+            ],
+            "states_after": [
+              "q3"
+            ],
+            "transitions_taken": [],
+            "explanation": "Consume 'NOW': q2 transitions to q3.",
+            "remaining_input": []
+          }
+        ],
+        "explanation": "The complete input matched the configured sequence WIN PRIZE NOW."
+      },
+      "nfa_result": {
+        "engine": "nfa",
+        "matched": true,
+        "accepted": true,
+        "matched_patterns": [
+          {
+            "pattern_id": "nfa_win_prize_now",
+            "name": "Exact sequence: WIN PRIZE NOW",
+            "category": "suspicious_phrase",
+            "explanation": "",
+            "evidence": [
+              {
+                "source": "body",
+                "text": "WIN PRIZE NOW",
+                "start_index": 0,
+                "end_index": 13
+              }
+            ]
+          }
+        ],
+        "final_states": [
+          "w3"
+        ],
+        "active_states": [
+          "w3"
+        ],
+        "trace": [
+          {
+            "step": 0,
+            "input_index": 0,
+            "symbol": null,
+            "states_before": [
+              "s0"
+            ],
+            "states_after": [
+              "a0",
+              "c0",
+              "s0",
+              "w0"
+            ],
+            "transitions_taken": [
+              "s0 --\u03b5--> a0",
+              "s0 --\u03b5--> c0",
+              "s0 --\u03b5--> w0"
+            ],
+            "explanation": "Apply epsilon closure before reading input.",
+            "remaining_input": [
+              "WIN",
+              "PRIZE",
+              "NOW"
+            ]
+          },
+          {
+            "step": 1,
+            "input_index": 0,
+            "symbol": "WIN",
+            "states_before": [
+              "a0",
+              "c0",
+              "s0",
+              "w0"
+            ],
+            "states_after": [
+              "w1"
+            ],
+            "transitions_taken": [
+              "w0 --WIN--> w1"
+            ],
+            "explanation": "w0 --WIN--> w1",
+            "remaining_input": [
+              "PRIZE",
+              "NOW"
+            ]
+          },
+          {
+            "step": 2,
+            "input_index": 1,
+            "symbol": "PRIZE",
+            "states_before": [
+              "w1"
+            ],
+            "states_after": [
+              "w2"
+            ],
+            "transitions_taken": [
+              "w1 --PRIZE--> w2"
+            ],
+            "explanation": "w1 --PRIZE--> w2",
+            "remaining_input": [
+              "NOW"
+            ]
+          },
+          {
+            "step": 3,
+            "input_index": 2,
+            "symbol": "NOW",
+            "states_before": [
+              "w2"
+            ],
+            "states_after": [
+              "w3"
+            ],
+            "transitions_taken": [
+              "w2 --NOW--> w3"
+            ],
+            "explanation": "w2 --NOW--> w3",
+            "remaining_input": []
+          }
+        ],
+        "explanation": "At least one NFA path accepted a configured phrase. This pattern match is not, by itself, proof that the email is malicious."
+      },
+      "regex_result": {
+        "engine": "regex",
+        "matched": true,
+        "matched_patterns": [
+          {
+            "pattern_id": "RULE-PHRASE-WIN",
+            "name": "Suspicious Phrase: WIN PRIZE NOW",
+            "category": "urgency_phrase",
+            "explanation": "This prize-and-urgency wording is a configured social-engineering cue.",
+            "evidence": [
+              {
+                "source": "body",
+                "text": "WIN PRIZE NOW",
+                "start_index": 0,
+                "end_index": 13
+              }
+            ]
+          }
+        ],
+        "explanation": "Matched 1 configured regex rule(s). Matches are indicators for review, not proof of phishing."
+      },
+      "no_match_warning": "No configured patterns matched. This does not guarantee that the message is safe."
+    }
+  },
+  {
+    "check": "ordinary.pdf",
+    "status": 200,
+    "response": {
+      "filename": "ordinary.pdf",
+      "extracted_text": "Team meeting tomorrow",
+      "page_count": 1,
+      "character_count": 21,
+      "extraction_note": "Selectable text was extracted locally in memory. Review and edit it before analysis if the PDF layout changed the reading order."
+    }
+  },
+  {
+    "check": "invalid.pdf",
+    "status": 400,
+    "response": {
+      "detail": "The uploaded file does not have a valid PDF signature."
+    }
+  },
+  {
+    "check": "malformed.pdf",
+    "status": 400,
+    "response": {
+      "detail": "The PDF is malformed or could not be read. Export the email as a new PDF and try again."
+    }
+  },
+  {
+    "check": "encrypted.pdf",
+    "status": 400,
+    "response": {
+      "detail": "The PDF is encrypted. Remove its password protection before uploading it."
+    }
+  },
+  {
+    "check": "textless.pdf",
+    "status": 400,
+    "response": {
+      "detail": "No selectable text was found. The PDF may be scanned or image-only; OCR is required and is not included in this project."
+    }
+  },
+  {
+    "check": "oversized.pdf",
+    "status": 413,
+    "response": {
+      "detail": "PDF files must be 10 MB or smaller."
+    }
+  },
+  {
+    "check": "empty.pdf",
+    "status": 400,
+    "response": {
+      "detail": "The uploaded PDF is empty."
+    }
+  },
+  {
+    "check": "non-PDF extension",
+    "status": 415,
+    "response": {
+      "detail": "Only .pdf files are accepted."
+    }
+  },
+  {
+    "check": "no match",
+    "status": 200,
+    "response": {
+      "classification": "no_configured_patterns_matched",
+      "risk_score": 0,
+      "mode": "combined",
+      "dfa_result": {
+        "engine": "dfa",
+        "matched": false,
+        "accepted": false,
+        "matched_patterns": [],
+        "final_states": [
+          "q_dead"
+        ],
+        "active_states": [
+          "q_dead"
+        ],
+        "trace": [
+          {
+            "step": 0,
+            "input_index": 0,
+            "symbol": null,
+            "states_before": [
+              "q0"
+            ],
+            "states_after": [
+              "q0"
+            ],
+            "transitions_taken": [],
+            "explanation": "Begin in start state q0 without consuming input.",
+            "remaining_input": [
+              "TEAM",
+              "MEETING",
+              "TOMORROW"
+            ]
+          },
+          {
+            "step": 1,
+            "input_index": 0,
+            "symbol": "TEAM",
+            "states_before": [
+              "q0"
+            ],
+            "states_after": [
+              "q_dead"
+            ],
+            "transitions_taken": [],
+            "explanation": "State q0 expected 'WIN', but consumed 'TEAM'; move to q_dead.",
+            "remaining_input": [
+              "MEETING",
+              "TOMORROW"
+            ]
+          },
+          {
+            "step": 2,
+            "input_index": 1,
+            "symbol": "MEETING",
+            "states_before": [
+              "q_dead"
+            ],
+            "states_after": [
+              "q_dead"
+            ],
+            "transitions_taken": [],
+            "explanation": "q_dead loops to itself after token 'MEETING'.",
+            "remaining_input": [
+              "TOMORROW"
+            ]
+          },
+          {
+            "step": 3,
+            "input_index": 2,
+            "symbol": "TOMORROW",
+            "states_before": [
+              "q_dead"
+            ],
+            "states_after": [
+              "q_dead"
+            ],
+            "transitions_taken": [],
+            "explanation": "q_dead loops to itself after token 'TOMORROW'.",
+            "remaining_input": []
+          }
+        ],
+        "explanation": "The input did not exactly match WIN PRIZE NOW. This means only that this configured DFA pattern was not matched; it does not guarantee safety."
+      },
+      "nfa_result": {
+        "engine": "nfa",
+        "matched": false,
+        "accepted": false,
+        "matched_patterns": [],
+        "final_states": [],
+        "active_states": [],
+        "trace": [
+          {
+            "step": 0,
+            "input_index": 0,
+            "symbol": null,
+            "states_before": [
+              "s0"
+            ],
+            "states_after": [
+              "a0",
+              "c0",
+              "s0",
+              "w0"
+            ],
+            "transitions_taken": [
+              "s0 --\u03b5--> a0",
+              "s0 --\u03b5--> c0",
+              "s0 --\u03b5--> w0"
+            ],
+            "explanation": "Apply epsilon closure before reading input.",
+            "remaining_input": [
+              "TEAM",
+              "MEETING",
+              "TOMORROW"
+            ]
+          },
+          {
+            "step": 1,
+            "input_index": 0,
+            "symbol": "TEAM",
+            "states_before": [
+              "a0",
+              "c0",
+              "s0",
+              "w0"
+            ],
+            "states_after": [],
+            "transitions_taken": [],
+            "explanation": "No active state has a transition for 'TEAM'.",
+            "remaining_input": [
+              "MEETING",
+              "TOMORROW"
+            ]
+          },
+          {
+            "step": 2,
+            "input_index": 1,
+            "symbol": "MEETING",
+            "states_before": [],
+            "states_after": [],
+            "transitions_taken": [],
+            "explanation": "No active state has a transition for 'MEETING'.",
+            "remaining_input": [
+              "TOMORROW"
+            ]
+          },
+          {
+            "step": 3,
+            "input_index": 2,
+            "symbol": "TOMORROW",
+            "states_before": [],
+            "states_after": [],
+            "transitions_taken": [],
+            "explanation": "No active state has a transition for 'TOMORROW'.",
+            "remaining_input": []
+          }
+        ],
+        "explanation": "No NFA path accepted a configured phrase. This does not guarantee that the email is safe."
+      },
+      "regex_result": {
+        "engine": "regex",
+        "matched": false,
+        "matched_patterns": [],
+        "explanation": "No configured regex rule matched. This does not guarantee that the email is safe."
+      },
+      "no_match_warning": "No configured patterns matched. This does not guarantee that the message is safe."
+    }
+  },
+  {
+    "check": "catalog",
+    "status": 200,
+    "response": {
+      "automata": [
+        {
+          "automaton_id": "dfa_win_prize_now",
+          "name": "DFA: WIN PRIZE NOW",
+          "description": "Recognizes exactly the token sequence WIN PRIZE NOW.",
+          "automaton_type": "dfa",
+          "states": [
+            "q0",
+            "q1",
+            "q2",
+            "q3",
+            "q_dead"
+          ],
+          "alphabet": [
+            "WIN",
+            "PRIZE",
+            "NOW",
+            "other"
+          ],
+          "start_state": "q0",
+          "accepting_states": [
+            "q3"
+          ],
+          "transitions": [
+            {
+              "from_state": "q0",
+              "symbol": "WIN",
+              "to_states": [
+                "q1"
+              ]
+            },
+            {
+              "from_state": "q0",
+              "symbol": "PRIZE",
+              "to_states": [
+                "q_dead"
+              ]
+            },
+            {
+              "from_state": "q0",
+              "symbol": "NOW",
+              "to_states": [
+                "q_dead"
+              ]
+            },
+            {
+              "from_state": "q0",
+              "symbol": "other",
+              "to_states": [
+                "q_dead"
+              ]
+            },
+            {
+              "from_state": "q1",
+              "symbol": "WIN",
+              "to_states": [
+                "q_dead"
+              ]
+            },
+            {
+              "from_state": "q1",
+              "symbol": "PRIZE",
+              "to_states": [
+                "q2"
+              ]
+            },
+            {
+              "from_state": "q1",
+              "symbol": "NOW",
+              "to_states": [
+                "q_dead"
+              ]
+            },
+            {
+              "from_state": "q1",
+              "symbol": "other",
+              "to_states": [
+                "q_dead"
+              ]
+            },
+            {
+              "from_state": "q2",
+              "symbol": "WIN",
+              "to_states": [
+                "q_dead"
+              ]
+            },
+            {
+              "from_state": "q2",
+              "symbol": "PRIZE",
+              "to_states": [
+                "q_dead"
+              ]
+            },
+            {
+              "from_state": "q2",
+              "symbol": "NOW",
+              "to_states": [
+                "q3"
+              ]
+            },
+            {
+              "from_state": "q2",
+              "symbol": "other",
+              "to_states": [
+                "q_dead"
+              ]
+            },
+            {
+              "from_state": "q3",
+              "symbol": "WIN",
+              "to_states": [
+                "q_dead"
+              ]
+            },
+            {
+              "from_state": "q3",
+              "symbol": "PRIZE",
+              "to_states": [
+                "q_dead"
+              ]
+            },
+            {
+              "from_state": "q3",
+              "symbol": "NOW",
+              "to_states": [
+                "q_dead"
+              ]
+            },
+            {
+              "from_state": "q3",
+              "symbol": "other",
+              "to_states": [
+                "q_dead"
+              ]
+            },
+            {
+              "from_state": "q_dead",
+              "symbol": "WIN",
+              "to_states": [
+                "q_dead"
+              ]
+            },
+            {
+              "from_state": "q_dead",
+              "symbol": "PRIZE",
+              "to_states": [
+                "q_dead"
+              ]
+            },
+            {
+              "from_state": "q_dead",
+              "symbol": "NOW",
+              "to_states": [
+                "q_dead"
+              ]
+            },
+            {
+              "from_state": "q_dead",
+              "symbol": "other",
+              "to_states": [
+                "q_dead"
+              ]
+            }
+          ]
+        },
+        {
+          "automaton_id": "nfa_phishing_branches",
+          "name": "NFA: Multi-Branch Phishing Recognizer",
+          "description": "Describes three token-sequence branches reached by epsilon moves.",
+          "automaton_type": "nfa",
+          "states": [
+            "s0",
+            "w0",
+            "w1",
+            "w2",
+            "w3",
+            "c0",
+            "c1",
+            "c2",
+            "c3",
+            "a0",
+            "a1",
+            "a2",
+            "a3"
+          ],
+          "alphabet": [
+            "WIN",
+            "PRIZE",
+            "NOW",
+            "CLAIM",
+            "REWARD",
+            "ACCOUNT",
+            "VERIFY",
+            "IMMEDIATELY"
+          ],
+          "start_state": "s0",
+          "accepting_states": [
+            "w3",
+            "c3",
+            "a3"
+          ],
+          "transitions": [
+            {
+              "from_state": "s0",
+              "symbol": null,
+              "to_states": [
+                "w0",
+                "c0",
+                "a0"
+              ]
+            },
+            {
+              "from_state": "w0",
+              "symbol": "WIN",
+              "to_states": [
+                "w1"
+              ]
+            },
+            {
+              "from_state": "w1",
+              "symbol": "PRIZE",
+              "to_states": [
+                "w2"
+              ]
+            },
+            {
+              "from_state": "w2",
+              "symbol": "NOW",
+              "to_states": [
+                "w3"
+              ]
+            },
+            {
+              "from_state": "c0",
+              "symbol": "CLAIM",
+              "to_states": [
+                "c1"
+              ]
+            },
+            {
+              "from_state": "c1",
+              "symbol": "REWARD",
+              "to_states": [
+                "c2"
+              ]
+            },
+            {
+              "from_state": "c2",
+              "symbol": "NOW",
+              "to_states": [
+                "c3"
+              ]
+            },
+            {
+              "from_state": "a0",
+              "symbol": "ACCOUNT",
+              "to_states": [
+                "a1"
+              ]
+            },
+            {
+              "from_state": "a1",
+              "symbol": "VERIFY",
+              "to_states": [
+                "a2"
+              ]
+            },
+            {
+              "from_state": "a2",
+              "symbol": "IMMEDIATELY",
+              "to_states": [
+                "a3"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "check": "dfa_win_prize_now",
+    "status": 200,
+    "response": {
+      "automaton_id": "dfa_win_prize_now",
+      "name": "DFA: WIN PRIZE NOW",
+      "description": "Recognizes exactly the token sequence WIN PRIZE NOW.",
+      "automaton_type": "dfa",
+      "states": [
+        "q0",
+        "q1",
+        "q2",
+        "q3",
+        "q_dead"
+      ],
+      "alphabet": [
+        "WIN",
+        "PRIZE",
+        "NOW",
+        "other"
+      ],
+      "start_state": "q0",
+      "accepting_states": [
+        "q3"
+      ],
+      "transitions": [
+        {
+          "from_state": "q0",
+          "symbol": "WIN",
+          "to_states": [
+            "q1"
+          ]
+        },
+        {
+          "from_state": "q0",
+          "symbol": "PRIZE",
+          "to_states": [
+            "q_dead"
+          ]
+        },
+        {
+          "from_state": "q0",
+          "symbol": "NOW",
+          "to_states": [
+            "q_dead"
+          ]
+        },
+        {
+          "from_state": "q0",
+          "symbol": "other",
+          "to_states": [
+            "q_dead"
+          ]
+        },
+        {
+          "from_state": "q1",
+          "symbol": "WIN",
+          "to_states": [
+            "q_dead"
+          ]
+        },
+        {
+          "from_state": "q1",
+          "symbol": "PRIZE",
+          "to_states": [
+            "q2"
+          ]
+        },
+        {
+          "from_state": "q1",
+          "symbol": "NOW",
+          "to_states": [
+            "q_dead"
+          ]
+        },
+        {
+          "from_state": "q1",
+          "symbol": "other",
+          "to_states": [
+            "q_dead"
+          ]
+        },
+        {
+          "from_state": "q2",
+          "symbol": "WIN",
+          "to_states": [
+            "q_dead"
+          ]
+        },
+        {
+          "from_state": "q2",
+          "symbol": "PRIZE",
+          "to_states": [
+            "q_dead"
+          ]
+        },
+        {
+          "from_state": "q2",
+          "symbol": "NOW",
+          "to_states": [
+            "q3"
+          ]
+        },
+        {
+          "from_state": "q2",
+          "symbol": "other",
+          "to_states": [
+            "q_dead"
+          ]
+        },
+        {
+          "from_state": "q3",
+          "symbol": "WIN",
+          "to_states": [
+            "q_dead"
+          ]
+        },
+        {
+          "from_state": "q3",
+          "symbol": "PRIZE",
+          "to_states": [
+            "q_dead"
+          ]
+        },
+        {
+          "from_state": "q3",
+          "symbol": "NOW",
+          "to_states": [
+            "q_dead"
+          ]
+        },
+        {
+          "from_state": "q3",
+          "symbol": "other",
+          "to_states": [
+            "q_dead"
+          ]
+        },
+        {
+          "from_state": "q_dead",
+          "symbol": "WIN",
+          "to_states": [
+            "q_dead"
+          ]
+        },
+        {
+          "from_state": "q_dead",
+          "symbol": "PRIZE",
+          "to_states": [
+            "q_dead"
+          ]
+        },
+        {
+          "from_state": "q_dead",
+          "symbol": "NOW",
+          "to_states": [
+            "q_dead"
+          ]
+        },
+        {
+          "from_state": "q_dead",
+          "symbol": "other",
+          "to_states": [
+            "q_dead"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "check": "dfa_win_prize_now simulation",
+    "status": 200,
+    "response": {
+      "automaton_id": "dfa_win_prize_now",
+      "automaton_type": "dfa",
+      "input_text": "WIN PRIZE NOW",
+      "accepted": true,
+      "final_states": [
+        "q3"
+      ],
+      "active_states": [
+        "q3"
+      ],
+      "trace": [
+        {
+          "step": 0,
+          "input_index": 0,
+          "symbol": null,
+          "states_before": [
+            "q0"
+          ],
+          "states_after": [
+            "q0"
+          ],
+          "transitions_taken": [],
+          "explanation": "Begin in start state q0 without consuming input.",
+          "remaining_input": [
+            "WIN",
+            "PRIZE",
+            "NOW"
+          ]
+        },
+        {
+          "step": 1,
+          "input_index": 0,
+          "symbol": "WIN",
+          "states_before": [
+            "q0"
+          ],
+          "states_after": [
+            "q1"
+          ],
+          "transitions_taken": [],
+          "explanation": "Consume 'WIN': q0 transitions to q1.",
+          "remaining_input": [
+            "PRIZE",
+            "NOW"
+          ]
+        },
+        {
+          "step": 2,
+          "input_index": 1,
+          "symbol": "PRIZE",
+          "states_before": [
+            "q1"
+          ],
+          "states_after": [
+            "q2"
+          ],
+          "transitions_taken": [],
+          "explanation": "Consume 'PRIZE': q1 transitions to q2.",
+          "remaining_input": [
+            "NOW"
+          ]
+        },
+        {
+          "step": 3,
+          "input_index": 2,
+          "symbol": "NOW",
+          "states_before": [
+            "q2"
+          ],
+          "states_after": [
+            "q3"
+          ],
+          "transitions_taken": [],
+          "explanation": "Consume 'NOW': q2 transitions to q3.",
+          "remaining_input": []
+        }
+      ],
+      "explanation": "The complete input matched the configured sequence WIN PRIZE NOW."
+    }
+  },
+  {
+    "check": "nfa_phishing_branches",
+    "status": 200,
+    "response": {
+      "automaton_id": "nfa_phishing_branches",
+      "name": "NFA: Multi-Branch Phishing Recognizer",
+      "description": "Describes three token-sequence branches reached by epsilon moves.",
+      "automaton_type": "nfa",
+      "states": [
+        "s0",
+        "w0",
+        "w1",
+        "w2",
+        "w3",
+        "c0",
+        "c1",
+        "c2",
+        "c3",
+        "a0",
+        "a1",
+        "a2",
+        "a3"
+      ],
+      "alphabet": [
+        "WIN",
+        "PRIZE",
+        "NOW",
+        "CLAIM",
+        "REWARD",
+        "ACCOUNT",
+        "VERIFY",
+        "IMMEDIATELY"
+      ],
+      "start_state": "s0",
+      "accepting_states": [
+        "w3",
+        "c3",
+        "a3"
+      ],
+      "transitions": [
+        {
+          "from_state": "s0",
+          "symbol": null,
+          "to_states": [
+            "w0",
+            "c0",
+            "a0"
+          ]
+        },
+        {
+          "from_state": "w0",
+          "symbol": "WIN",
+          "to_states": [
+            "w1"
+          ]
+        },
+        {
+          "from_state": "w1",
+          "symbol": "PRIZE",
+          "to_states": [
+            "w2"
+          ]
+        },
+        {
+          "from_state": "w2",
+          "symbol": "NOW",
+          "to_states": [
+            "w3"
+          ]
+        },
+        {
+          "from_state": "c0",
+          "symbol": "CLAIM",
+          "to_states": [
+            "c1"
+          ]
+        },
+        {
+          "from_state": "c1",
+          "symbol": "REWARD",
+          "to_states": [
+            "c2"
+          ]
+        },
+        {
+          "from_state": "c2",
+          "symbol": "NOW",
+          "to_states": [
+            "c3"
+          ]
+        },
+        {
+          "from_state": "a0",
+          "symbol": "ACCOUNT",
+          "to_states": [
+            "a1"
+          ]
+        },
+        {
+          "from_state": "a1",
+          "symbol": "VERIFY",
+          "to_states": [
+            "a2"
+          ]
+        },
+        {
+          "from_state": "a2",
+          "symbol": "IMMEDIATELY",
+          "to_states": [
+            "a3"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "check": "nfa_phishing_branches simulation",
+    "status": 200,
+    "response": {
+      "automaton_id": "nfa_phishing_branches",
+      "automaton_type": "nfa",
+      "input_text": "WIN PRIZE NOW",
+      "accepted": true,
+      "final_states": [
+        "w3"
+      ],
+      "active_states": [
+        "w3"
+      ],
+      "trace": [
+        {
+          "step": 0,
+          "input_index": 0,
+          "symbol": null,
+          "states_before": [
+            "s0"
+          ],
+          "states_after": [
+            "a0",
+            "c0",
+            "s0",
+            "w0"
+          ],
+          "transitions_taken": [
+            "s0 --\u03b5--> a0",
+            "s0 --\u03b5--> c0",
+            "s0 --\u03b5--> w0"
+          ],
+          "explanation": "Apply epsilon closure before reading input.",
+          "remaining_input": [
+            "WIN",
+            "PRIZE",
+            "NOW"
+          ]
+        },
+        {
+          "step": 1,
+          "input_index": 0,
+          "symbol": "WIN",
+          "states_before": [
+            "a0",
+            "c0",
+            "s0",
+            "w0"
+          ],
+          "states_after": [
+            "w1"
+          ],
+          "transitions_taken": [
+            "w0 --WIN--> w1"
+          ],
+          "explanation": "w0 --WIN--> w1",
+          "remaining_input": [
+            "PRIZE",
+            "NOW"
+          ]
+        },
+        {
+          "step": 2,
+          "input_index": 1,
+          "symbol": "PRIZE",
+          "states_before": [
+            "w1"
+          ],
+          "states_after": [
+            "w2"
+          ],
+          "transitions_taken": [
+            "w1 --PRIZE--> w2"
+          ],
+          "explanation": "w1 --PRIZE--> w2",
+          "remaining_input": [
+            "NOW"
+          ]
+        },
+        {
+          "step": 3,
+          "input_index": 2,
+          "symbol": "NOW",
+          "states_before": [
+            "w2"
+          ],
+          "states_after": [
+            "w3"
+          ],
+          "transitions_taken": [
+            "w2 --NOW--> w3"
+          ],
+          "explanation": "w2 --NOW--> w3",
+          "remaining_input": []
+        }
+      ],
+      "explanation": "At least one NFA path accepted a configured phrase. This pattern match is not, by itself, proof that the email is malicious."
+    }
+  },
+  {
+    "check": "subset construction",
+    "status": 200,
+    "response": {
+      "source_automaton_id": "nfa_phishing_branches",
+      "source_start_state": "s0",
+      "source_accepting_states": [
+        "a3",
+        "c3",
+        "w3"
+      ],
+      "alphabet": [
+        "ACCOUNT",
+        "CLAIM",
+        "IMMEDIATELY",
+        "NOW",
+        "PRIZE",
+        "REWARD",
+        "VERIFY",
+        "WIN"
+      ],
+      "initial_epsilon_closure": [
+        "a0",
+        "c0",
+        "s0",
+        "w0"
+      ],
+      "dfa_start_state": "D0",
+      "dfa_accepting_states": [
+        "D7",
+        "D8",
+        "D9"
+      ],
+      "dfa_states": [
+        {
+          "state_id": "D0",
+          "nfa_states": [
+            "a0",
+            "c0",
+            "s0",
+            "w0"
+          ],
+          "is_start": true,
+          "is_accepting": false
+        },
+        {
+          "state_id": "D1",
+          "nfa_states": [
+            "a1"
+          ],
+          "is_start": false,
+          "is_accepting": false
+        },
+        {
+          "state_id": "D2",
+          "nfa_states": [
+            "c1"
+          ],
+          "is_start": false,
+          "is_accepting": false
+        },
+        {
+          "state_id": "D_dead",
+          "nfa_states": [],
+          "is_start": false,
+          "is_accepting": false
+        },
+        {
+          "state_id": "D3",
+          "nfa_states": [
+            "w1"
+          ],
+          "is_start": false,
+          "is_accepting": false
+        },
+        {
+          "state_id": "D4",
+          "nfa_states": [
+            "a2"
+          ],
+          "is_start": false,
+          "is_accepting": false
+        },
+        {
+          "state_id": "D5",
+          "nfa_states": [
+            "c2"
+          ],
+          "is_start": false,
+          "is_accepting": false
+        },
+        {
+          "state_id": "D6",
+          "nfa_states": [
+            "w2"
+          ],
+          "is_start": false,
+          "is_accepting": false
+        },
+        {
+          "state_id": "D7",
+          "nfa_states": [
+            "a3"
+          ],
+          "is_start": false,
+          "is_accepting": true
+        },
+        {
+          "state_id": "D8",
+          "nfa_states": [
+            "c3"
+          ],
+          "is_start": false,
+          "is_accepting": true
+        },
+        {
+          "state_id": "D9",
+          "nfa_states": [
+            "w3"
+          ],
+          "is_start": false,
+          "is_accepting": true
+        }
+      ],
+      "transitions": [
+        {
+          "from_state": "D0",
+          "symbol": "ACCOUNT",
+          "to_state": "D1"
+        },
+        {
+          "from_state": "D0",
+          "symbol": "CLAIM",
+          "to_state": "D2"
+        },
+        {
+          "from_state": "D0",
+          "symbol": "IMMEDIATELY",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D0",
+          "symbol": "NOW",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D0",
+          "symbol": "PRIZE",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D0",
+          "symbol": "REWARD",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D0",
+          "symbol": "VERIFY",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D0",
+          "symbol": "WIN",
+          "to_state": "D3"
+        },
+        {
+          "from_state": "D1",
+          "symbol": "ACCOUNT",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D1",
+          "symbol": "CLAIM",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D1",
+          "symbol": "IMMEDIATELY",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D1",
+          "symbol": "NOW",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D1",
+          "symbol": "PRIZE",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D1",
+          "symbol": "REWARD",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D1",
+          "symbol": "VERIFY",
+          "to_state": "D4"
+        },
+        {
+          "from_state": "D1",
+          "symbol": "WIN",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D2",
+          "symbol": "ACCOUNT",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D2",
+          "symbol": "CLAIM",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D2",
+          "symbol": "IMMEDIATELY",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D2",
+          "symbol": "NOW",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D2",
+          "symbol": "PRIZE",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D2",
+          "symbol": "REWARD",
+          "to_state": "D5"
+        },
+        {
+          "from_state": "D2",
+          "symbol": "VERIFY",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D2",
+          "symbol": "WIN",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D_dead",
+          "symbol": "ACCOUNT",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D_dead",
+          "symbol": "CLAIM",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D_dead",
+          "symbol": "IMMEDIATELY",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D_dead",
+          "symbol": "NOW",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D_dead",
+          "symbol": "PRIZE",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D_dead",
+          "symbol": "REWARD",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D_dead",
+          "symbol": "VERIFY",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D_dead",
+          "symbol": "WIN",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D3",
+          "symbol": "ACCOUNT",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D3",
+          "symbol": "CLAIM",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D3",
+          "symbol": "IMMEDIATELY",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D3",
+          "symbol": "NOW",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D3",
+          "symbol": "PRIZE",
+          "to_state": "D6"
+        },
+        {
+          "from_state": "D3",
+          "symbol": "REWARD",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D3",
+          "symbol": "VERIFY",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D3",
+          "symbol": "WIN",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D4",
+          "symbol": "ACCOUNT",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D4",
+          "symbol": "CLAIM",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D4",
+          "symbol": "IMMEDIATELY",
+          "to_state": "D7"
+        },
+        {
+          "from_state": "D4",
+          "symbol": "NOW",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D4",
+          "symbol": "PRIZE",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D4",
+          "symbol": "REWARD",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D4",
+          "symbol": "VERIFY",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D4",
+          "symbol": "WIN",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D5",
+          "symbol": "ACCOUNT",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D5",
+          "symbol": "CLAIM",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D5",
+          "symbol": "IMMEDIATELY",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D5",
+          "symbol": "NOW",
+          "to_state": "D8"
+        },
+        {
+          "from_state": "D5",
+          "symbol": "PRIZE",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D5",
+          "symbol": "REWARD",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D5",
+          "symbol": "VERIFY",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D5",
+          "symbol": "WIN",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D6",
+          "symbol": "ACCOUNT",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D6",
+          "symbol": "CLAIM",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D6",
+          "symbol": "IMMEDIATELY",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D6",
+          "symbol": "NOW",
+          "to_state": "D9"
+        },
+        {
+          "from_state": "D6",
+          "symbol": "PRIZE",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D6",
+          "symbol": "REWARD",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D6",
+          "symbol": "VERIFY",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D6",
+          "symbol": "WIN",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D7",
+          "symbol": "ACCOUNT",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D7",
+          "symbol": "CLAIM",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D7",
+          "symbol": "IMMEDIATELY",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D7",
+          "symbol": "NOW",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D7",
+          "symbol": "PRIZE",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D7",
+          "symbol": "REWARD",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D7",
+          "symbol": "VERIFY",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D7",
+          "symbol": "WIN",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D8",
+          "symbol": "ACCOUNT",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D8",
+          "symbol": "CLAIM",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D8",
+          "symbol": "IMMEDIATELY",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D8",
+          "symbol": "NOW",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D8",
+          "symbol": "PRIZE",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D8",
+          "symbol": "REWARD",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D8",
+          "symbol": "VERIFY",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D8",
+          "symbol": "WIN",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D9",
+          "symbol": "ACCOUNT",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D9",
+          "symbol": "CLAIM",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D9",
+          "symbol": "IMMEDIATELY",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D9",
+          "symbol": "NOW",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D9",
+          "symbol": "PRIZE",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D9",
+          "symbol": "REWARD",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D9",
+          "symbol": "VERIFY",
+          "to_state": "D_dead"
+        },
+        {
+          "from_state": "D9",
+          "symbol": "WIN",
+          "to_state": "D_dead"
+        }
+      ],
+      "construction_steps": [
+        {
+          "step": 1,
+          "source_state": "D0",
+          "source_nfa_states": [
+            "a0",
+            "c0",
+            "s0",
+            "w0"
+          ],
+          "symbol": "ACCOUNT",
+          "move_result": [
+            "a1"
+          ],
+          "epsilon_closure": [
+            "a1"
+          ],
+          "target_state": "D1",
+          "created_new_state": true
+        },
+        {
+          "step": 2,
+          "source_state": "D0",
+          "source_nfa_states": [
+            "a0",
+            "c0",
+            "s0",
+            "w0"
+          ],
+          "symbol": "CLAIM",
+          "move_result": [
+            "c1"
+          ],
+          "epsilon_closure": [
+            "c1"
+          ],
+          "target_state": "D2",
+          "created_new_state": true
+        },
+        {
+          "step": 3,
+          "source_state": "D0",
+          "source_nfa_states": [
+            "a0",
+            "c0",
+            "s0",
+            "w0"
+          ],
+          "symbol": "IMMEDIATELY",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": true
+        },
+        {
+          "step": 4,
+          "source_state": "D0",
+          "source_nfa_states": [
+            "a0",
+            "c0",
+            "s0",
+            "w0"
+          ],
+          "symbol": "NOW",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 5,
+          "source_state": "D0",
+          "source_nfa_states": [
+            "a0",
+            "c0",
+            "s0",
+            "w0"
+          ],
+          "symbol": "PRIZE",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 6,
+          "source_state": "D0",
+          "source_nfa_states": [
+            "a0",
+            "c0",
+            "s0",
+            "w0"
+          ],
+          "symbol": "REWARD",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 7,
+          "source_state": "D0",
+          "source_nfa_states": [
+            "a0",
+            "c0",
+            "s0",
+            "w0"
+          ],
+          "symbol": "VERIFY",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 8,
+          "source_state": "D0",
+          "source_nfa_states": [
+            "a0",
+            "c0",
+            "s0",
+            "w0"
+          ],
+          "symbol": "WIN",
+          "move_result": [
+            "w1"
+          ],
+          "epsilon_closure": [
+            "w1"
+          ],
+          "target_state": "D3",
+          "created_new_state": true
+        },
+        {
+          "step": 9,
+          "source_state": "D1",
+          "source_nfa_states": [
+            "a1"
+          ],
+          "symbol": "ACCOUNT",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 10,
+          "source_state": "D1",
+          "source_nfa_states": [
+            "a1"
+          ],
+          "symbol": "CLAIM",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 11,
+          "source_state": "D1",
+          "source_nfa_states": [
+            "a1"
+          ],
+          "symbol": "IMMEDIATELY",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 12,
+          "source_state": "D1",
+          "source_nfa_states": [
+            "a1"
+          ],
+          "symbol": "NOW",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 13,
+          "source_state": "D1",
+          "source_nfa_states": [
+            "a1"
+          ],
+          "symbol": "PRIZE",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 14,
+          "source_state": "D1",
+          "source_nfa_states": [
+            "a1"
+          ],
+          "symbol": "REWARD",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 15,
+          "source_state": "D1",
+          "source_nfa_states": [
+            "a1"
+          ],
+          "symbol": "VERIFY",
+          "move_result": [
+            "a2"
+          ],
+          "epsilon_closure": [
+            "a2"
+          ],
+          "target_state": "D4",
+          "created_new_state": true
+        },
+        {
+          "step": 16,
+          "source_state": "D1",
+          "source_nfa_states": [
+            "a1"
+          ],
+          "symbol": "WIN",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 17,
+          "source_state": "D2",
+          "source_nfa_states": [
+            "c1"
+          ],
+          "symbol": "ACCOUNT",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 18,
+          "source_state": "D2",
+          "source_nfa_states": [
+            "c1"
+          ],
+          "symbol": "CLAIM",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 19,
+          "source_state": "D2",
+          "source_nfa_states": [
+            "c1"
+          ],
+          "symbol": "IMMEDIATELY",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 20,
+          "source_state": "D2",
+          "source_nfa_states": [
+            "c1"
+          ],
+          "symbol": "NOW",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 21,
+          "source_state": "D2",
+          "source_nfa_states": [
+            "c1"
+          ],
+          "symbol": "PRIZE",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 22,
+          "source_state": "D2",
+          "source_nfa_states": [
+            "c1"
+          ],
+          "symbol": "REWARD",
+          "move_result": [
+            "c2"
+          ],
+          "epsilon_closure": [
+            "c2"
+          ],
+          "target_state": "D5",
+          "created_new_state": true
+        },
+        {
+          "step": 23,
+          "source_state": "D2",
+          "source_nfa_states": [
+            "c1"
+          ],
+          "symbol": "VERIFY",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 24,
+          "source_state": "D2",
+          "source_nfa_states": [
+            "c1"
+          ],
+          "symbol": "WIN",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 25,
+          "source_state": "D_dead",
+          "source_nfa_states": [],
+          "symbol": "ACCOUNT",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 26,
+          "source_state": "D_dead",
+          "source_nfa_states": [],
+          "symbol": "CLAIM",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 27,
+          "source_state": "D_dead",
+          "source_nfa_states": [],
+          "symbol": "IMMEDIATELY",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 28,
+          "source_state": "D_dead",
+          "source_nfa_states": [],
+          "symbol": "NOW",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 29,
+          "source_state": "D_dead",
+          "source_nfa_states": [],
+          "symbol": "PRIZE",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 30,
+          "source_state": "D_dead",
+          "source_nfa_states": [],
+          "symbol": "REWARD",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 31,
+          "source_state": "D_dead",
+          "source_nfa_states": [],
+          "symbol": "VERIFY",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 32,
+          "source_state": "D_dead",
+          "source_nfa_states": [],
+          "symbol": "WIN",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 33,
+          "source_state": "D3",
+          "source_nfa_states": [
+            "w1"
+          ],
+          "symbol": "ACCOUNT",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 34,
+          "source_state": "D3",
+          "source_nfa_states": [
+            "w1"
+          ],
+          "symbol": "CLAIM",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 35,
+          "source_state": "D3",
+          "source_nfa_states": [
+            "w1"
+          ],
+          "symbol": "IMMEDIATELY",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 36,
+          "source_state": "D3",
+          "source_nfa_states": [
+            "w1"
+          ],
+          "symbol": "NOW",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 37,
+          "source_state": "D3",
+          "source_nfa_states": [
+            "w1"
+          ],
+          "symbol": "PRIZE",
+          "move_result": [
+            "w2"
+          ],
+          "epsilon_closure": [
+            "w2"
+          ],
+          "target_state": "D6",
+          "created_new_state": true
+        },
+        {
+          "step": 38,
+          "source_state": "D3",
+          "source_nfa_states": [
+            "w1"
+          ],
+          "symbol": "REWARD",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 39,
+          "source_state": "D3",
+          "source_nfa_states": [
+            "w1"
+          ],
+          "symbol": "VERIFY",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 40,
+          "source_state": "D3",
+          "source_nfa_states": [
+            "w1"
+          ],
+          "symbol": "WIN",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 41,
+          "source_state": "D4",
+          "source_nfa_states": [
+            "a2"
+          ],
+          "symbol": "ACCOUNT",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 42,
+          "source_state": "D4",
+          "source_nfa_states": [
+            "a2"
+          ],
+          "symbol": "CLAIM",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 43,
+          "source_state": "D4",
+          "source_nfa_states": [
+            "a2"
+          ],
+          "symbol": "IMMEDIATELY",
+          "move_result": [
+            "a3"
+          ],
+          "epsilon_closure": [
+            "a3"
+          ],
+          "target_state": "D7",
+          "created_new_state": true
+        },
+        {
+          "step": 44,
+          "source_state": "D4",
+          "source_nfa_states": [
+            "a2"
+          ],
+          "symbol": "NOW",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 45,
+          "source_state": "D4",
+          "source_nfa_states": [
+            "a2"
+          ],
+          "symbol": "PRIZE",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 46,
+          "source_state": "D4",
+          "source_nfa_states": [
+            "a2"
+          ],
+          "symbol": "REWARD",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 47,
+          "source_state": "D4",
+          "source_nfa_states": [
+            "a2"
+          ],
+          "symbol": "VERIFY",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 48,
+          "source_state": "D4",
+          "source_nfa_states": [
+            "a2"
+          ],
+          "symbol": "WIN",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 49,
+          "source_state": "D5",
+          "source_nfa_states": [
+            "c2"
+          ],
+          "symbol": "ACCOUNT",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 50,
+          "source_state": "D5",
+          "source_nfa_states": [
+            "c2"
+          ],
+          "symbol": "CLAIM",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 51,
+          "source_state": "D5",
+          "source_nfa_states": [
+            "c2"
+          ],
+          "symbol": "IMMEDIATELY",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 52,
+          "source_state": "D5",
+          "source_nfa_states": [
+            "c2"
+          ],
+          "symbol": "NOW",
+          "move_result": [
+            "c3"
+          ],
+          "epsilon_closure": [
+            "c3"
+          ],
+          "target_state": "D8",
+          "created_new_state": true
+        },
+        {
+          "step": 53,
+          "source_state": "D5",
+          "source_nfa_states": [
+            "c2"
+          ],
+          "symbol": "PRIZE",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 54,
+          "source_state": "D5",
+          "source_nfa_states": [
+            "c2"
+          ],
+          "symbol": "REWARD",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 55,
+          "source_state": "D5",
+          "source_nfa_states": [
+            "c2"
+          ],
+          "symbol": "VERIFY",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 56,
+          "source_state": "D5",
+          "source_nfa_states": [
+            "c2"
+          ],
+          "symbol": "WIN",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 57,
+          "source_state": "D6",
+          "source_nfa_states": [
+            "w2"
+          ],
+          "symbol": "ACCOUNT",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 58,
+          "source_state": "D6",
+          "source_nfa_states": [
+            "w2"
+          ],
+          "symbol": "CLAIM",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 59,
+          "source_state": "D6",
+          "source_nfa_states": [
+            "w2"
+          ],
+          "symbol": "IMMEDIATELY",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 60,
+          "source_state": "D6",
+          "source_nfa_states": [
+            "w2"
+          ],
+          "symbol": "NOW",
+          "move_result": [
+            "w3"
+          ],
+          "epsilon_closure": [
+            "w3"
+          ],
+          "target_state": "D9",
+          "created_new_state": true
+        },
+        {
+          "step": 61,
+          "source_state": "D6",
+          "source_nfa_states": [
+            "w2"
+          ],
+          "symbol": "PRIZE",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 62,
+          "source_state": "D6",
+          "source_nfa_states": [
+            "w2"
+          ],
+          "symbol": "REWARD",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 63,
+          "source_state": "D6",
+          "source_nfa_states": [
+            "w2"
+          ],
+          "symbol": "VERIFY",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 64,
+          "source_state": "D6",
+          "source_nfa_states": [
+            "w2"
+          ],
+          "symbol": "WIN",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 65,
+          "source_state": "D7",
+          "source_nfa_states": [
+            "a3"
+          ],
+          "symbol": "ACCOUNT",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 66,
+          "source_state": "D7",
+          "source_nfa_states": [
+            "a3"
+          ],
+          "symbol": "CLAIM",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 67,
+          "source_state": "D7",
+          "source_nfa_states": [
+            "a3"
+          ],
+          "symbol": "IMMEDIATELY",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 68,
+          "source_state": "D7",
+          "source_nfa_states": [
+            "a3"
+          ],
+          "symbol": "NOW",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 69,
+          "source_state": "D7",
+          "source_nfa_states": [
+            "a3"
+          ],
+          "symbol": "PRIZE",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 70,
+          "source_state": "D7",
+          "source_nfa_states": [
+            "a3"
+          ],
+          "symbol": "REWARD",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 71,
+          "source_state": "D7",
+          "source_nfa_states": [
+            "a3"
+          ],
+          "symbol": "VERIFY",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 72,
+          "source_state": "D7",
+          "source_nfa_states": [
+            "a3"
+          ],
+          "symbol": "WIN",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 73,
+          "source_state": "D8",
+          "source_nfa_states": [
+            "c3"
+          ],
+          "symbol": "ACCOUNT",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 74,
+          "source_state": "D8",
+          "source_nfa_states": [
+            "c3"
+          ],
+          "symbol": "CLAIM",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 75,
+          "source_state": "D8",
+          "source_nfa_states": [
+            "c3"
+          ],
+          "symbol": "IMMEDIATELY",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 76,
+          "source_state": "D8",
+          "source_nfa_states": [
+            "c3"
+          ],
+          "symbol": "NOW",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 77,
+          "source_state": "D8",
+          "source_nfa_states": [
+            "c3"
+          ],
+          "symbol": "PRIZE",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 78,
+          "source_state": "D8",
+          "source_nfa_states": [
+            "c3"
+          ],
+          "symbol": "REWARD",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 79,
+          "source_state": "D8",
+          "source_nfa_states": [
+            "c3"
+          ],
+          "symbol": "VERIFY",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 80,
+          "source_state": "D8",
+          "source_nfa_states": [
+            "c3"
+          ],
+          "symbol": "WIN",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 81,
+          "source_state": "D9",
+          "source_nfa_states": [
+            "w3"
+          ],
+          "symbol": "ACCOUNT",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 82,
+          "source_state": "D9",
+          "source_nfa_states": [
+            "w3"
+          ],
+          "symbol": "CLAIM",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 83,
+          "source_state": "D9",
+          "source_nfa_states": [
+            "w3"
+          ],
+          "symbol": "IMMEDIATELY",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 84,
+          "source_state": "D9",
+          "source_nfa_states": [
+            "w3"
+          ],
+          "symbol": "NOW",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 85,
+          "source_state": "D9",
+          "source_nfa_states": [
+            "w3"
+          ],
+          "symbol": "PRIZE",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 86,
+          "source_state": "D9",
+          "source_nfa_states": [
+            "w3"
+          ],
+          "symbol": "REWARD",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 87,
+          "source_state": "D9",
+          "source_nfa_states": [
+            "w3"
+          ],
+          "symbol": "VERIFY",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        },
+        {
+          "step": 88,
+          "source_state": "D9",
+          "source_nfa_states": [
+            "w3"
+          ],
+          "symbol": "WIN",
+          "move_result": [],
+          "epsilon_closure": [],
+          "target_state": "D_dead",
+          "created_new_state": false
+        }
+      ],
+      "explanation": "Each generated DFA state represents an epsilon-closed set of NFA states. A generated state is accepting when its subset contains at least one accepting NFA state. D_dead represents the empty subset."
+    }
+  }
+]
